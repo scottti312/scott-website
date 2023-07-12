@@ -1,4 +1,5 @@
 <script>
+	import { themeControl } from './stores';
 	import './styles.css';
 	import Button from './theme-toggle.svelte';
 	import { onMount } from 'svelte';
@@ -15,7 +16,15 @@
 
 	onMount(() => {
 		header = document.getElementsByTagName('header')[0];
+		let isDarkReaderEnabled = "querySelector" in document && !!document.querySelector("meta[name=darkreader]");
+		if (isDarkReaderEnabled) {
+			themeControl.beDark();
+			let bodyClass = window.document.body.classList;
+			let header = document.body.getElementsByTagName('header')[0];
+			bodyClass.toggle('dark-mode');
+		}
 	});
+
 
 	/**
 	 * @param {number} y
