@@ -3,6 +3,10 @@
 	import './styles.css';
 	import Button from './theme-toggle.svelte';
 	import { onMount } from 'svelte';
+	import { dev } from '$app/environment';
+	import { inject } from '@vercel/analytics';
+
+	inject({ mode: dev ? 'development' : 'production' });
 
 	/**
 	 * @type {HTMLElement}
@@ -16,7 +20,8 @@
 
 	onMount(() => {
 		header = document.getElementsByTagName('header')[0];
-		let isDarkReaderEnabled = "querySelector" in document && !!document.querySelector("meta[name=darkreader]");
+		let isDarkReaderEnabled =
+			'querySelector' in document && !!document.querySelector('meta[name=darkreader]');
 		if (isDarkReaderEnabled) {
 			themeControl.beDark();
 			let bodyClass = window.document.body.classList;
@@ -25,34 +30,33 @@
 		}
 	});
 
-
 	/**
 	 * @param {number} y
 	 */
 	function updateHeader(y) {
-		if (y === 0 && !document.body.classList.contains("dark-mode")) {
-			header.style.backgroundColor = "transparent";
-			header.style.transition = "all 0.3s";
-			header.style.boxShadow = "none";
-			header.style.borderBottom = "none";
+		if (y === 0 && !document.body.classList.contains('dark-mode')) {
+			header.style.backgroundColor = 'transparent';
+			header.style.transition = 'all 0.3s';
+			header.style.boxShadow = 'none';
+			header.style.borderBottom = 'none';
 		}
-		if (y === 0 && document.body.classList.contains("dark-mode")) {
-			header.style.transition = "all 0.3s";
-			header.style.backgroundColor = "transparent";
-			header.style.borderBottom = "none";
-			header.style.boxShadow = "none";
+		if (y === 0 && document.body.classList.contains('dark-mode')) {
+			header.style.transition = 'all 0.3s';
+			header.style.backgroundColor = 'transparent';
+			header.style.borderBottom = 'none';
+			header.style.boxShadow = 'none';
 		}
-		if (y > 0 && !document.body.classList.contains("dark-mode")) {
-			header.style.transition = "all 0.3s";
-			header.style.backgroundColor = "#ffffff";
-			header.style.boxShadow = "0px -50px 60px 20px rgba(0, 0, 0, 0.75)";
-			header.style.borderBottom = "none";
+		if (y > 0 && !document.body.classList.contains('dark-mode')) {
+			header.style.transition = 'all 0.3s';
+			header.style.backgroundColor = '#ffffff';
+			header.style.boxShadow = '0px -50px 60px 20px rgba(0, 0, 0, 0.75)';
+			header.style.borderBottom = 'none';
 		}
-		if (y > 0 && document.body.classList.contains("dark-mode")) {
-			header.style.transition = "background-color 0.3s";
-			header.style.backgroundColor = "#181818"
-			header.style.borderBottom = "solid 1px #2a2a2a";
-			header.style.boxShadow = "none";
+		if (y > 0 && document.body.classList.contains('dark-mode')) {
+			header.style.transition = 'background-color 0.3s';
+			header.style.backgroundColor = '#181818';
+			header.style.borderBottom = 'solid 1px #2a2a2a';
+			header.style.boxShadow = 'none';
 		}
 	}
 
@@ -65,7 +69,7 @@
 		const top = element?.getBoundingClientRect().top;
 		if (top) {
 			const y = top + window.scrollY + YOffset;
-			window.scrollTo({top: y})
+			window.scrollTo({ top: y });
 		}
 	}
 
@@ -74,10 +78,10 @@
 
 <div class="app">
 	<header>
-			<button on:click={() => window.scrollTo(0,0)}>Home</button>
-			<button on:click={() => scrollTowards("about-title")}>About</button>
-			<button on:click={() => scrollTowards("projects-title")}>Projects</button>
-			<!-- <button on:click={() => document.getElementById('contact')?.scrollIntoView()}>Contact</button> -->
+		<button on:click={() => window.scrollTo(0, 0)}>Home</button>
+		<button on:click={() => scrollTowards('about-title')}>About</button>
+		<button on:click={() => scrollTowards('projects-title')}>Projects</button>
+		<!-- <button on:click={() => document.getElementById('contact')?.scrollIntoView()}>Contact</button> -->
 		<div class="theme-butt">
 			<Button />
 		</div>
@@ -92,6 +96,7 @@
 	</footer>
 </div>
 
+<svelte:window bind:scrollY={y} />
 
 <style>
 	:global(body) {
@@ -120,7 +125,7 @@
 		background-color: white;
 		box-shadow: none;
 		align-items: center;
-		animation: all 0.3s; 
+		animation: all 0.3s;
 	}
 
 	header button {
@@ -148,7 +153,7 @@
 	:global(body.dark-mode) header button::after {
 		background-color: white;
 	}
-	
+
 	header button:hover::after {
 		transform: scaleX(1);
 		transform-origin: bottom left;
@@ -168,7 +173,7 @@
 
 	:global(body.dark-mode) header button {
 		color: white;
-    transition: all 0.3s;
+		transition: all 0.3s;
 	}
 
 	main {
@@ -195,5 +200,3 @@
 		}
 	}
 </style>
-
-<svelte:window bind:scrollY={y} />
