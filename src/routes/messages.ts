@@ -5,5 +5,4 @@ export const messages = [
 	"sudo pacman -Syu",
 	"Running unit tests...",
 	"Hello, World.",
-	"Praise Uncle Bob",
 ];
