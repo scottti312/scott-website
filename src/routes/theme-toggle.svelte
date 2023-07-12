@@ -10,7 +10,6 @@
     let header = document.body.getElementsByTagName('header')[0];
     bodyClass.toggle('dark-mode');
     $themeControl ? themeControl.beDark() : themeControl.beLight();
-    console.log($themeControl);
 
     let y = window.scrollY;
 		if (y === 0 && $themeControl) {
