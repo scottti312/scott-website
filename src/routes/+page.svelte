@@ -38,25 +38,28 @@
 	.first .foreground {
 		z-index: 1;
 		display: flex;
-		justify-content: space-around;
+		justify-content: center;
 		align-items: center;
+		gap: 300px;
 		height: 100vh;
 		width: 100%;
 	}
 
 	.first h1 {
 		margin: 0;
+		font-weight: 700;
 	}
 
 	.first left {
 		display: flex;
 		flex-direction: column;
-		align-content: flex-start;
+		align-items: center;
+
 	}
 
 	.first .typewriter-container {
 		text-align: center;
-		width: 200px;
+		width: 300px;
 		height: 2em;
 	}
 
