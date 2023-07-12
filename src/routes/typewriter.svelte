@@ -25,5 +25,7 @@
 {/key}
 
 <style>
-
+	.typewriter {
+		font-size: 1.3em;
+	}
 </style>
