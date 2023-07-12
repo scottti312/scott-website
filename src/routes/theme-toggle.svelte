@@ -98,14 +98,14 @@
   }
 
   img.sun {
-    transition: transform 5s ease-out;
+    transition: all 5s ease-out;
   }
   img.sun:hover {
     transform: rotate(360deg) scale(1.2) ;
   }
 
   img.moon {
-    transition: transform 1s ease-out;
+    transition: all 1s ease-out;
   }
 
   img.moon:hover {
