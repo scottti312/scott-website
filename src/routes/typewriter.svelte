@@ -10,13 +10,20 @@
 		const interval = setInterval(() => {
 			i += 1;
 			i %= messages.length;
-		}, 5000);
+		}, 2500);
 		return () => {
 			clearInterval(interval);
 		};
 	});
+
 </script>
 
 {#key i}
-	<p class="typewriter" transition:typewriter={{ speed: 5 }}>{messages[i] || ''}</p>
+	<p
+	class="typewriter" transition:typewriter={{ speed: 5 }}
+	>{messages[i] || ''}</p>
 {/key}
+
+<style>
+
+</style>
