@@ -1,45 +1,50 @@
 <script>
 	import Typewriter from './typewriter.svelte';
-	import me from '$lib/images/me.png';
+	import Background from './background.svelte';
+	import About from './about.svelte';
+	import Projects from './projects.svelte';
+	import me from '$lib/images/me.webp';
 </script>
 
 <svelte:head>
 	<title>Scott Ti</title>
 	<meta name="description" content="Scott's Website" />
-	<script src="https://kit.fontawesome.com/cbce618375.js" crossorigin="anonymous"></script>
 </svelte:head>
 
 <section class="first">
-	<left>
-		<h1>Hi, I'm Scott Ti</h1>
-		<div class="typewriter-container">
-			<Typewriter />
-		</div>
-	</left>
-	<right>
-		<img src={me} alt="Me" />
-	</right>
+<Background />
+	<div class="foreground">
+		<left>
+			<h1>Hi, I'm Scott Ti</h1>
+			<div class="typewriter-container">
+				<Typewriter />
+			</div>
+		</left>
+		<right>
+			<img src={me} alt="Me" />
+		</right>
+	</div>
 </section>
 
-<section class="second">
-	<h2>About</h2>
-	<h3>Skills</h3>
-</section>
+<About />
 
-<section class="third">
-	<h2>Projects</h2>
-</section>
+<Projects />
 
 <style>
 	.first {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: center;
 		height: 100vh;
 	}
 
-	.first h1{
+	.first .foreground {
+		z-index: 1;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		height: 100vh;
+		width: 100%;
+	}
+
+	.first h1 {
 		margin: 0;
 	}
 
@@ -56,16 +61,8 @@
 	}
 
 	.first img {
-		width: 512px;
+		width: 256px;
 		height: auto;
-	}
-
-	.second {
-
-	}
-
-	.third {
-
 	}
 
 	section {
