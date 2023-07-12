@@ -1,18 +1,70 @@
 <script>
 	import './styles.css';
 	import Button from './theme-toggle.svelte';
+	import { onMount } from 'svelte';
+
+	/**
+	 * @type {HTMLElement}
+	 */
+	let header;
+
+	/**
+	 * @type {number}
+	 */
+	let y;
+
+	onMount(() => {
+		header = document.getElementsByTagName('header')[0];
+	});
+
+	/**
+	 * @param {number} y
+	 */
+	function updateHeader(y) {
+
+		if (y === 0 && !document.body.classList.contains("dark-mode")) {
+			header.style.backgroundColor = "transparent";
+			header.style.transition = "all 0.3s";
+			header.style.boxShadow = "none";
+			header.style.borderBottom = "none";
+		}
+		if (y === 0 && document.body.classList.contains("dark-mode")) {
+			header.style.transition = "all 0.3s";
+			header.style.backgroundColor = "transparent";
+			header.style.borderBottom = "none";
+			header.style.boxShadow = "none";
+		}
+		if (y > 0 && !document.body.classList.contains("dark-mode")) {
+			header.style.transition = "all 0.3s";
+			header.style.backgroundColor = "#ffffff";
+			header.style.boxShadow = "0px -50px 60px 20px rgba(0, 0, 0, 0.75)";
+			header.style.borderBottom = "none";
+		}
+		if (y > 0 && document.body.classList.contains("dark-mode")) {
+			header.style.transition = "background-color 0.3s";
+			header.style.backgroundColor = "#181818"
+			header.style.borderBottom = "solid 1px #2a2a2a";
+			header.style.boxShadow = "none";
+		}
+	}
+	$: updateHeader(y);
 </script>
 
 <div class="app">
 	<header>
-		<div class="left">
-			<logo>Scott Ti</logo>
-		</div>
-		<div class="right">
+			<button on:click={() => {
+				const YOffset = -200;
+				const element = document.getElementById("about");
+				const top = element?.getBoundingClientRect().top;
+				if (top) {
+					const y = top + window.scrollY + YOffset;
+					window.scrollTo({top: y})
+				}
+			}}>About</button>
+			<button on:click={() => document.getElementById('projects')?.scrollIntoView()}>Projects</button>
+			<button on:click={() => document.getElementById('contact')?.scrollIntoView()}>Contact</button>
+		<div class="theme-butt">
 			<Button />
-			<button>About</button>
-			<button>Projects</button>
-			<button>Contact</button>
 		</div>
 	</header>
 
@@ -24,6 +76,7 @@
 		<p>Made by Scott Ti</p>
 	</footer>
 </div>
+
 
 <style>
 	:global(body) {
@@ -43,17 +96,64 @@
 	}
 
 	header {
+		position: fixed;
+		z-index: 10;
+		width: 100%;
 		display: flex;
-		justify-content: space-around;
-		padding: 20px;
-		-webkit-box-shadow: 0px -15px 60px 3px rgba(0, 0, 0, 0.75);
-		-moz-box-shadow: 0px -15px 60px 3px rgba(0, 0, 0, 0.75);
-		box-shadow: 0px -50px 60px 3px rgba(0, 0, 0, 0.75);
+		justify-content: center;
+		height: 55px;
+		background-color: white;
+		box-shadow: none;
+		align-items: center;
+		animation: all 0.3s; 
+	}
+
+	header button {
+		display: inline-block;
+		position: relative;
+		border: none;
+		margin: 0px 20px 0px 20px;
+		background: none;
+		font: inherit;
+		cursor: pointer;
+	}
+
+	header button::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		transform: scaleX(0);
+		height: 2px;
+		bottom: -2px;
+		left: 0;
+		background-color: black;
+		transform-origin: bottom right;
+		transition: transform 0.25s ease-out;
+	}
+	:global(body.dark-mode) header button::after {
+		background-color: white;
+	}
+	
+	header button:hover::after {
+		transform: scaleX(1);
+		transform-origin: bottom left;
+	}
+
+	header .theme-butt {
+		position: absolute;
+		right: 8vw;
 	}
 
 	:global(body.dark-mode) header {
-		background-color: gray;
+		background-color: #181818;
 		transition: background-color 0.3s;
+		border-bottom: solid 1px #2a2a2a;
+		box-shadow: none;
+	}
+
+	:global(body.dark-mode) header button {
+		color: white;
+    transition: all 0.3s;
 	}
 
 	main {
@@ -79,3 +179,5 @@
 		}
 	}
 </style>
+
+<svelte:window bind:scrollY={y} />
