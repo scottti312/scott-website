@@ -21,7 +21,6 @@
 	 * @param {number} y
 	 */
 	function updateHeader(y) {
-
 		if (y === 0 && !document.body.classList.contains("dark-mode")) {
 			header.style.backgroundColor = "transparent";
 			header.style.transition = "all 0.3s";
@@ -47,22 +46,29 @@
 			header.style.boxShadow = "none";
 		}
 	}
+
+	/**
+	 * @param {string} elementId
+	 */
+	function scrollTowards(elementId) {
+		const YOffset = -100;
+		const element = document.getElementById(elementId);
+		const top = element?.getBoundingClientRect().top;
+		if (top) {
+			const y = top + window.scrollY + YOffset;
+			window.scrollTo({top: y})
+		}
+	}
+
 	$: updateHeader(y);
 </script>
 
 <div class="app">
 	<header>
-			<button on:click={() => {
-				const YOffset = -200;
-				const element = document.getElementById("about");
-				const top = element?.getBoundingClientRect().top;
-				if (top) {
-					const y = top + window.scrollY + YOffset;
-					window.scrollTo({top: y})
-				}
-			}}>About</button>
-			<button on:click={() => document.getElementById('projects')?.scrollIntoView()}>Projects</button>
-			<button on:click={() => document.getElementById('contact')?.scrollIntoView()}>Contact</button>
+			<button on:click={() => window.scrollTo(0,0)}>Home</button>
+			<button on:click={() => scrollTowards("about-title")}>About</button>
+			<button on:click={() => scrollTowards("projects-title")}>Projects</button>
+			<!-- <button on:click={() => document.getElementById('contact')?.scrollIntoView()}>Contact</button> -->
 		<div class="theme-butt">
 			<Button />
 		</div>
@@ -73,7 +79,7 @@
 	</main>
 
 	<footer>
-		<p>Made by Scott Ti</p>
+		<p>Made by Scott Ti. Thanks for visiting ❤️</p>
 	</footer>
 </div>
 
@@ -171,6 +177,7 @@
 		justify-content: center;
 		align-items: center;
 		padding: 12px;
+		background-color: transparent;
 	}
 
 	@media (min-width: 480px) {
