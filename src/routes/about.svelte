@@ -43,7 +43,6 @@
 		background-color: color(display-p3 0.693 0.865 0.666);
 		display: flex;
 		width: 100%;
-		height: 1000px;
 		justify-content: center;
     gap: 100px;
 		padding-top: 250px;
