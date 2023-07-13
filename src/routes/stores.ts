@@ -10,8 +10,4 @@ function themeStore() {
   }
 }
 
-function gradientStore() {
-  const { subscribe, set, update } = writable(true)
-}
-
 export const themeControl = themeStore();
