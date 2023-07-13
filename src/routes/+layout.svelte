@@ -27,6 +27,7 @@
 	</main>
 	<footer>
 		<p>Made by Scott Ti. Thanks for visiting ❤️</p>
+			<a href="https://github.com/scottti312/scott-website">Visit the source code</a>
 	</footer>
 </div>
 
@@ -63,6 +64,10 @@
 		align-items: center;
 		padding: 12px;
 		background-color: transparent;
+	}
+
+	footer a {
+		text-decoration: underline;
 	}
 
 	@media (min-width: 480px) {
