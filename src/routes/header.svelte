@@ -51,7 +51,7 @@
 
 	/**
 	 * @param {number} y
-	 * @param {number} [windowWidth]
+	 * @param {number} windowWidth
 	 */
 	function updateHeader(y, windowWidth) {
 		if (windowWidth <= 950) {
@@ -66,24 +66,28 @@
 					header.style.transition = 'all 0.3s';
 					header.style.boxShadow = 'none';
 					header.style.borderBottom = 'none';
+					console.log('1');
 				}
 				if (y === 0 && body.classList.contains('dark-mode')) {
 					header.style.transition = 'all 0.3s';
 					header.style.backgroundColor = 'transparent';
 					header.style.borderBottom = 'none';
 					header.style.boxShadow = 'none';
+					console.log('2');
 				}
 				if (y > 0 && !body.classList.contains('dark-mode')) {
 					header.style.transition = 'all 0.3s';
 					header.style.backgroundColor = '#ffffff';
 					header.style.boxShadow = '0px -50px 60px 20px rgba(0, 0, 0, 0.75)';
 					header.style.borderBottom = 'none';
+					console.log('3');
 				}
 				if (y > 0 && body.classList.contains('dark-mode')) {
 					header.style.transition = 'background-color 0.3s';
 					header.style.backgroundColor = '#181818';
 					header.style.borderBottom = 'solid 1px #2a2a2a';
 					header.style.boxShadow = 'none';
+					console.log('4');
 				}
 			}
 		}
@@ -140,7 +144,7 @@
 
 <svelte:window bind:outerWidth={windowWidth} bind:scrollY={y} />
 
-<header id="header" style={windowWidth >= 950 ? "display: flex" : "display: none"}>
+<header id="header" style={windowWidth >= 950 ? "display: flex; background-color: transparent;" : "display: none;"}>
 	<button on:click={() => window.scrollTo(0, 0)}>Home</button>
 	<button on:click={() => scrollTowards('about-title')}>About</button>
 	<button on:click={() => scrollTowards('projects-title')}>Projects</button>
