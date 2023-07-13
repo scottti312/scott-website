@@ -39,7 +39,7 @@
 
 <style>
 	section {
-		transition: background-color 0.5s;
+		transition: background-color 0.5s ease;
 		background-color: color(display-p3 0.693 0.865 0.666);
 		display: flex;
 		width: 100%;
