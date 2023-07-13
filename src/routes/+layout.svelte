@@ -9,7 +9,12 @@
 	// Vercel analytics
 	inject({ mode: dev ? 'development' : 'production' });
 
+
 	onMount(() => {
+		if (localStorage.getItem("theme") === "dark") {
+			themeControl.beDark();
+			window.document.body.classList.add('dark-mode');
+		}
 		let isDarkReaderEnabled =
 			'querySelector' in document && !!document.querySelector('meta[name=darkreader]');
 		if (isDarkReaderEnabled) {
@@ -65,6 +70,7 @@
 		padding: 20px;
 		background-color: color(display-p3 1 0.664 0.453);
 		color: rgb(90, 53, 23);
+		transition: all 0.5s ease;
 	}
 
 	:global(body.dark-mode) footer {

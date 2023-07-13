@@ -1,7 +1,7 @@
 <script>
 	import { themeControl } from './stores';
 	import './styles.css';
-	import Button from './theme-toggle.svelte';
+	import ThemeButton from './theme-toggle.svelte';
 	import { onMount } from 'svelte';
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
@@ -143,7 +143,7 @@
 	<button on:click={() => scrollTowards('about-title')}>About</button>
 	<button on:click={() => scrollTowards('projects-title')}>Projects</button>
 	<div class="theme-butt">
-		<Button />
+		<ThemeButton />
 	</div>
 </header>
 
@@ -152,7 +152,7 @@
 		<img src={angleLeft} alt="Menu" height="25px" width="25px"/>
 	</button>
 	<div class="theme-butt-mobile">
-		<Button />
+		<ThemeButton />
 	</div>
 </div>
 
