@@ -6,6 +6,7 @@
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
 	import bars from '$lib/images/bars.svg';
+  import angleLeft from '$lib/images/angle-left.svg';
 	import { fade, fly } from 'svelte/transition';
 
 	inject({ mode: dev ? 'development' : 'production' });
@@ -44,7 +45,6 @@
 
 	onMount(() => {
 		savedDocument = document;
-		header = document.getElementsByTagName('header')[0];
 		body = document.body;
 		let isDarkReaderEnabled =
 			'querySelector' in document && !!document.querySelector('meta[name=darkreader]');
@@ -108,14 +108,45 @@
 		}
 	}
 
+
+  function openMobileMenu() {
+    mobileMenuEnabled = true;
+    let button = document.getElementById("mobile-menu-button");
+    if (button) {
+      button.style.transition = "all 0.5s ease";
+      button.style.transform = "rotate(180deg)";
+    }
+    console.log('opened');
+  }
+
+  /**
+	 * @param {string | undefined} [element]
+	 */
+  function closeMobileMenu(element) {
+    mobileMenuEnabled = false
+    let button = document.getElementById("mobile-menu-button");
+    if (button) {
+      button.style.transform = "rotate(0deg)";
+    }
+    if (element === undefined) {
+      return;
+    }
+    else if (element === "home") {
+      window.scrollTo(0, 0);
+    } else {
+      scrollTowards(element);
+    }
+    console.log('closed');
+  }
+
 	$: updateHeader(y);
 </script>
 
 <svelte:window bind:outerWidth={windowWidth} bind:scrollY={y} />
 {#if windowWidth <= 950}
   <div class="menu-button-container">
-    <button class="mobile-hamburger" on:click={() => mobileMenuEnabled = true}>
-      <img src={bars} alt="Menu" height="25px" width="25px"/>
+    <button id="mobile-menu-button" class="mobile-menu-button" on:click={openMobileMenu}>
+      <img src={angleLeft} alt="Menu" height="25px" width="25px"/>
     </button>
     <div class="theme-butt-mobile">
       <Button />
@@ -126,15 +157,15 @@
       <div class="mobile-menu"
         transition:fly={{ x: 200}}
       >
-        <button class="mobile-home-butt" on:click={() => {window.scrollTo(0, 0); mobileMenuEnabled = false;}}>Home</button>
-        <button class="mobile-about-butt" on:click={() => {scrollTowards('about-title'); mobileMenuEnabled = false;}}>About</button>
-        <button class="mobile-projects-butt" on:click={() => {scrollTowards('projects-title'); mobileMenuEnabled = false;}}>Projects</button>
+        <button class="mobile-home-butt" on:click={() => closeMobileMenu("home")}>Home</button>
+        <button class="mobile-about-butt" on:click={() => closeMobileMenu("about-title")}>About</button>
+        <button class="mobile-projects-butt" on:click={() => closeMobileMenu("projects-title")}>Projects</button>
       </div>
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <!-- svelte-ignore a11y-no-static-element-interactions -->
       <div
         class="mobile-menu-blur" 
-        on:click={() => mobileMenuEnabled = false}
+        on:click={() => closeMobileMenu()}
         transition:fade={{duration: 200}}
       >
       </div>
@@ -170,7 +201,7 @@
 		align-items: center;
 	}
 
-	.mobile-hamburger {
+	.mobile-menu-button {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -178,9 +209,10 @@
 		background-color: transparent;
 		cursor: pointer;
 		padding: 0;
+    transition: all 1s;
 	}
 
-	:global(body.dark-mode) .mobile-hamburger {
+	:global(body.dark-mode) .mobile-menu-button {
 		transition: all 0.3s;
 		filter: invert(1);
 	}
@@ -215,7 +247,7 @@
 	}
 
 	.mobile-menu .mobile-home-butt:hover {
-		color: gray;
+		color: #B3D9FC;
 		font-size: 2.5em;
 	}
 
@@ -236,7 +268,7 @@
 		border-top: 4px solid white;
 	} */
 
-	@keyframes opacityFadeIn {
+	@keyframes opacityFadeInn {
 		from {
 			opacity: 0;
 		}
