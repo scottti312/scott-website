@@ -138,7 +138,7 @@
 
 <svelte:window bind:outerWidth={windowWidth} bind:scrollY={y} />
 
-<header id="header" style={windowWidth >= 950 ? "display: flex; background-color: transparent;" : "display: none;"}>
+<header id="header" style={windowWidth >= 950 ? "display: flex; background-color: transparent; border-bottom: none;" : "display: none;"}>
 	<button on:click={() => window.scrollTo(0, 0)}>Home</button>
 	<button on:click={() => scrollTowards('about-title')}>About</button>
 	<button on:click={() => scrollTowards('projects-title')}>Projects</button>
