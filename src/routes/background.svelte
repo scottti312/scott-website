@@ -1,6 +1,6 @@
 <script>
 	import { afterUpdate, onMount } from "svelte";
-  import { Gradient } from "./Gradient";
+  import { Gradient } from "./scripts/Gradient";
   import { themeControl } from "./stores";
 
 	const gradient = new Gradient();
@@ -44,7 +44,6 @@
 		--gradient-color-2: #1a2d38;
 		--gradient-color-3: #4c4855;
 		--gradient-color-4: #303142;
-
   }
 </style>
 
