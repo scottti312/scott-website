@@ -42,7 +42,7 @@
     gap: 100px;
 		padding-top: 250px;
 		padding-bottom: 250px;
-		color: rgb(27, 39, 20);
+		color: rgb(49, 77, 35);
 	}
 
 	:global(body.dark-mode) section {

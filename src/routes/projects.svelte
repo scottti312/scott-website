@@ -74,7 +74,7 @@
 		flex-direction: column;
 		width: 100%;
 		padding: 250px 0 250px 0; 
-		color: rgb(56, 33, 14);
+		color: rgb(90, 53, 23);
 	}
 
 	:global(body.dark-mode) section {
