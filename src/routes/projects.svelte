@@ -78,7 +78,7 @@
 	}
 
 	:global(body.dark-mode) section {
-		background-color: color(display-p3 0.822 0.425 0.249);
+		background-color: color(display-p3 0.570 0.223 0.112);
 		color: #ffdaba;
 	}
 
@@ -91,11 +91,12 @@
 
 	.projects-grid {
 		display: grid;
-		grid-template-rows: repeat(3, 150px);
+		grid-template-rows: repeat(auto-fit, 150px);
 		grid-template-columns: repeat(auto-fit, 400px);
 		justify-content: center;
 		gap: 30px;
 		width: 80%;
+		max-width: 1500px;
 	}
 
 	h3 {
@@ -112,5 +113,16 @@
 
 	p {
 		margin-top: 5px;
+	}
+
+	@media screen and (max-width: 950px) {
+		.projects-grid {
+			grid-template-columns: repeat(auto-fit, 300px);
+			grid-template-rows: repeat(auto-fit, 200px);
+		}
+
+		h3 {
+			font-weight: 500;
+		}
 	}
 </style>

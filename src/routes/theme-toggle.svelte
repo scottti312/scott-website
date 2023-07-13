@@ -5,38 +5,41 @@
   
   let transitionDone = true;
 
+  let windowWidth = 0;
+
   function toggle() {
     let bodyClass = window.document.body.classList;
-    let header = document.body.getElementsByTagName('header')[0];
     bodyClass.toggle('dark-mode');
     $themeControl ? themeControl.beDark() : themeControl.beLight();
 
-    let y = window.scrollY;
-		if (y === 0 && $themeControl) {
-			header.style.backgroundColor = "transparent";
-			header.style.transition = "all 0.3s";
-			header.style.boxShadow = "none";
-			header.style.borderBottom = "none";
-		}
-		if (y === 0 && !$themeControl) {
-			header.style.transition = "all 0.3s";
-			header.style.backgroundColor = "transparent";
-			header.style.borderBottom = "none";
-			header.style.boxShadow = "none";
-		}
-		if (y > 0 && $themeControl) {
-			header.style.transition = "all 0.3s";
-			header.style.backgroundColor = "#ffffff";
-			header.style.boxShadow = "0px -50px 60px 20px rgba(0, 0, 0, 0.75)";
-			header.style.borderBottom = "none";
-		}
-		if (y > 0 && !$themeControl) {
-			header.style.transition = "background-color 0.3s";
-			header.style.backgroundColor = "#181818"
-			header.style.borderBottom = "solid 1px #2a2a2a";
-			header.style.boxShadow = "none";
-		}
-
+    if (windowWidth > 950) {
+      let y = window.scrollY;
+      let header = document.body.getElementsByTagName('header')[0];
+      if (y === 0 && $themeControl) {
+        header.style.backgroundColor = "transparent";
+        header.style.transition = "all 0.3s";
+        header.style.boxShadow = "none";
+        header.style.borderBottom = "none";
+      }
+      if (y === 0 && !$themeControl) {
+        header.style.transition = "all 0.3s";
+        header.style.backgroundColor = "transparent";
+        header.style.borderBottom = "none";
+        header.style.boxShadow = "none";
+      }
+      if (y > 0 && $themeControl) {
+        header.style.transition = "all 0.3s";
+        header.style.backgroundColor = "#ffffff";
+        header.style.boxShadow = "0px -50px 60px 20px rgba(0, 0, 0, 0.75)";
+        header.style.borderBottom = "none";
+      }
+      if (y > 0 && !$themeControl) {
+        header.style.transition = "background-color 0.3s";
+        header.style.backgroundColor = "#181818"
+        header.style.borderBottom = "solid 1px #2a2a2a";
+        header.style.boxShadow = "none";
+      }
+    }
   };
 
   function done() {
@@ -52,6 +55,8 @@
     }
   }
 </script>
+
+<svelte:window bind:outerWidth={windowWidth} />
 
 {#if $themeControl && transitionDone}
 <div

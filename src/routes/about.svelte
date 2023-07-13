@@ -6,7 +6,7 @@
 			MacBook. I started by coding small terminal programs in C using Xcode.
 		</p>
 		<p>
-			Since then, I've learned a ton about computer science fundamentals and programming in general. I love learning to use cutting edge technologies, even when they're not very well adopted. This website, for example, is a form of practice to learn Svelte/SvelteKit.
+			Since then, I've learned a ton about computer science fundamentals and programming in general. I love learning to use new and cutting edge technologies, even when they're not very well adopted. This website, for example, is a form of practice to learn Svelte/SvelteKit.
 		</p>
 		<p>
 			I hope to soon to apply my knowledge and personal experience in a professional environment. I'm excited for what lies ahead and ready for any challenge.
@@ -41,6 +41,7 @@
 		justify-content: center;
     gap: 100px;
 		padding-top: 250px;
+		padding-bottom: 250px;
 		color: rgb(27, 39, 20);
 	}
 
@@ -58,13 +59,14 @@
 	.about {
 		margin-left: 70px;
 		min-width: 400px;
+		max-width: 500px;
 	}
 
 	.links-list {
 		display: flex;
 		flex-direction: column;
-		margin-right: 70px;
-		min-width: 300px;
+		min-width: 400px;
+		max-width: 400px;
 	}
 
 	.links-list a {
@@ -82,4 +84,39 @@
 		font-weight: 600;
 	}
 
+	@media screen and (max-width: 950px) {
+		section {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 60px;
+		}
+
+		.about {
+			margin-left: 0;
+			padding-bottom: 60px;
+			min-width: 300px;
+			max-width: 300px;
+			border-bottom: solid rgb(27, 39, 20) 2px;
+		}
+
+		.links-list {
+			margin-right: 0;
+			min-width: 300px;
+			max-width: 300px;
+		}
+
+		h3 {
+			font-weight: 500;
+		}
+
+		p, a {
+			font-size: 1.1em;
+			font-weight: 400;
+		}
+
+		:global(body.dark-mode) .about {
+			border-bottom: solid rgb(214, 255, 197) 2px;
+		}
+	}
 </style>
