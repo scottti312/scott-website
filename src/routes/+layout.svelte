@@ -145,14 +145,12 @@
 		{/if}
 	{:else}
 		<header>
-			<p>{windowWidth}</p>
 			<button on:click={() => window.scrollTo(0, 0)}>Home</button>
 			<button on:click={() => scrollTowards('about-title')}>About</button>
 			<button on:click={() => scrollTowards('projects-title')}>Projects</button>
 			<div class="theme-butt">
 				<Button />
 			</div>
-			<p>{y}</p>
 		</header>
 	{/if}
 	<main>
