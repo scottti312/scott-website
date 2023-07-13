@@ -111,6 +111,10 @@
 	$: updateHeader(y);
 </script>
 
+
+
+
+
 <svelte:window bind:outerWidth={windowWidth} bind:scrollY={y} />
 
 <div class="app">
