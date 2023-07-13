@@ -109,6 +109,13 @@
 		text-decoration: underline;
 		font-weight: 1000;
 		font-size: 1.1em;
+		padding: 3px;
+		border-radius: 7px;
+		transition: all 0.2s;
+	}
+
+	a:hover {
+		background-color: bisque;
 	}
 
 	p {

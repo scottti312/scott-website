@@ -132,9 +132,9 @@
 				<div class="mobile-menu"
 					transition:fly={{ x: 200}}
 				>
-					<button on:click={() => {window.scrollTo(0, 0); mobileMenuEnabled = false;}}>Home</button>
-					<button on:click={() => {scrollTowards('about-title'); mobileMenuEnabled = false;}}>About</button>
-					<button on:click={() => {scrollTowards('projects-title'); mobileMenuEnabled = false;}}>Projects</button>
+					<button class="mobile-home-butt" on:click={() => {window.scrollTo(0, 0); mobileMenuEnabled = false;}}>Home</button>
+					<button class="mobile-about-butt" on:click={() => {scrollTowards('about-title'); mobileMenuEnabled = false;}}>About</button>
+					<button class="mobile-projects-butt" on:click={() => {scrollTowards('projects-title'); mobileMenuEnabled = false;}}>Projects</button>
 				</div>
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -242,6 +242,21 @@
 		font-size: 2em;
 		padding: 25px 100px 25px 0;
 		transition: all 0.3s ease;
+	}
+
+	.mobile-menu .mobile-home-butt:hover {
+		color: gray;
+		font-size: 2.5em;
+	}
+
+	.mobile-menu .mobile-about-butt:hover {
+		color: #A5DEA5;
+		font-size: 2.5em;
+	}
+
+	.mobile-menu .mobile-projects-butt:hover {
+		color: #FFA468;
+		font-size: 2.5em;
 	}
 
 	.mobile-menu button:first-child {
