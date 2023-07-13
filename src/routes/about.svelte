@@ -6,7 +6,7 @@
 	<div class="about">
 		<h3 id="about-title">About</h3>
 		<p>
-			My name is Scott Ti (pronounced "tea"). I was born in Seattle and raised in southern California. My first experience in programming was around 2009 when I got my first laptop, a late 2008 model
+			My name is Scott Ti (pronounced "tea"). I was born in Seattle and raised in Southern California. My first experience in programming was around 2009 when I got my first laptop, a late 2008 model
 			MacBook. I started by coding small terminal programs in C using Xcode.
 		</p>
 		<p>
