@@ -225,11 +225,11 @@
 	.mobile-menu {
 		display: flex;
 		flex-direction: column;
-		justify-content: left;
 		position: fixed;
 		top: 65px;
 		right: 50px;
 		z-index: 56;
+		width: 200px;
 	}
 
 	.mobile-menu button {
@@ -239,7 +239,7 @@
 		cursor: pointer;
 		color: white;
 		font-size: 2em;
-		padding: 25px 100px 25px 0;
+		padding: 25px;
 		transition: all 0.3s ease;
 	}
 
@@ -258,12 +258,12 @@
 		font-size: 2.5em;
 	}
 
-	.mobile-menu button:first-child {
-		border-bottom: 2px solid white;
-	}
-	.mobile-menu button:last-child {
-		border-top: 2px solid white;
-	}
+	/* .mobile-menu button:first-child {
+		border-bottom: 4px solid white;
+	} */
+	/* .mobile-menu button:last-child {
+		border-top: 4px solid white;
+	} */
 
 	@keyframes opacityFadeIn {
 		from {
