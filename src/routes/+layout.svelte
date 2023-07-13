@@ -81,4 +81,8 @@
 		background-color: #ffdaba;
 	}
 
+	:global(body.dark-mode) footer a:hover {
+		background-color: rgb(192, 127, 65);
+	}
+
 </style>

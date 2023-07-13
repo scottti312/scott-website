@@ -115,6 +115,10 @@
 		background-color: bisque;
 	}
 
+	:global(body.dark-mode) a:hover {
+		background-color: rgb(192, 127, 65);
+	}
+
 	p {
 		margin-top: 5px;
 	}
