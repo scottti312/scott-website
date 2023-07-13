@@ -3,7 +3,6 @@
 	import Background from './background.svelte';
 	import About from './about.svelte';
 	import Projects from './projects.svelte';
-	import me from '$lib/images/me.webp';
 </script>
 
 <svelte:head>
@@ -12,7 +11,7 @@
 </svelte:head>
 
 <section class="first">
-<Background />
+	<Background />
 	<div class="foreground">
 		<left>
 			<h1>Hi, I'm Scott Ti</h1>
@@ -20,9 +19,6 @@
 				<Typewriter />
 			</div>
 		</left>
-		<!-- <right> -->
-			<!-- <img src={me} alt="Me" /> -->
-		<!-- </right> -->
 	</div>
 </section>
 
@@ -54,18 +50,12 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-
 	}
 
 	.first .typewriter-container {
 		text-align: center;
 		width: 300px;
 		height: 2em;
-	}
-
-	.first img {
-		width: 256px;
-		height: auto;
 	}
 
 	section {
