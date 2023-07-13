@@ -20,9 +20,9 @@
 				<Typewriter />
 			</div>
 		</left>
-		<right>
-			<img src={me} alt="Me" />
-		</right>
+		<!-- <right> -->
+			<!-- <img src={me} alt="Me" /> -->
+		<!-- </right> -->
 	</div>
 </section>
 
