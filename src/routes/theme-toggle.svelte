@@ -1,5 +1,5 @@
 <script>
-	import sun from '$lib/images/sun.svg';
+	import sun from '$lib/images/sun.png';
 	import moon from '$lib/images/moon.svg';
 	import { themeControl } from './stores';
 
@@ -18,24 +18,24 @@
 			if (y === 0 && $themeControl) {
 				header.style.backgroundColor = 'transparent';
 				header.style.transition = 'all 0.3s';
-				header.style.boxShadow = 'none';
 				header.style.borderBottom = 'none';
+				header.style.boxShadow = 'none';
 			}
 			if (y === 0 && !$themeControl) {
-				header.style.transition = 'all 0.3s';
 				header.style.backgroundColor = 'transparent';
+				header.style.transition = 'all 0.3s';
 				header.style.borderBottom = 'none';
 				header.style.boxShadow = 'none';
 			}
 			if (y > 0 && $themeControl) {
-				header.style.transition = 'all 0.3s';
 				header.style.backgroundColor = '#ffffff';
-				header.style.boxShadow = '0px -50px 60px 20px rgba(0, 0, 0, 0.75)';
+				header.style.transition = 'all 0.3s';
 				header.style.borderBottom = 'none';
+				header.style.boxShadow = '0px -50px 60px 20px rgba(0, 0, 0, 0.75)';
 			}
 			if (y > 0 && !$themeControl) {
-				header.style.transition = 'background-color 0.3s';
 				header.style.backgroundColor = '#181818';
+				header.style.transition = 'background-color 0.3s';
 				header.style.borderBottom = 'solid 1px #2a2a2a';
 				header.style.boxShadow = 'none';
 			}
