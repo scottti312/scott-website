@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
-	import { typewriter } from './typewriter';
-	import { messages } from './messages';
+	import { typewriter } from './scripts/typewriter';
+	import { messages } from './scripts/messages';
 
 	let i = -1;
 
