@@ -5,16 +5,10 @@
 	import { onMount } from 'svelte';
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
-	import bars from '$lib/images/bars.svg';
   import angleLeft from '$lib/images/angle-left.svg';
 	import { fade, fly } from 'svelte/transition';
 
 	inject({ mode: dev ? 'development' : 'production' });
-
-	/**
-	 * @type {HTMLElement}
-	 */
-	let header;
 
 	/**
 	 * @type {HTMLElement}
@@ -57,38 +51,41 @@
 
 	/**
 	 * @param {number} y
+	 * @param {number} [windowWidth]
 	 */
-	function updateHeader(y) {
+	function updateHeader(y, windowWidth) {
 		if (windowWidth <= 950) {
 			return;
 		}
 
-		if (savedDocument) {
-			header = savedDocument.getElementsByTagName('header')[0];
-		}
-		if (y === 0 && !body.classList.contains('dark-mode')) {
-			header.style.backgroundColor = 'transparent';
-			header.style.transition = 'all 0.3s';
-			header.style.boxShadow = 'none';
-			header.style.borderBottom = 'none';
-		}
-		if (y === 0 && body.classList.contains('dark-mode')) {
-			header.style.transition = 'all 0.3s';
-			header.style.backgroundColor = 'transparent';
-			header.style.borderBottom = 'none';
-			header.style.boxShadow = 'none';
-		}
-		if (y > 0 && !body.classList.contains('dark-mode')) {
-			header.style.transition = 'all 0.3s';
-			header.style.backgroundColor = '#ffffff';
-			header.style.boxShadow = '0px -50px 60px 20px rgba(0, 0, 0, 0.75)';
-			header.style.borderBottom = 'none';
-		}
-		if (y > 0 && body.classList.contains('dark-mode')) {
-			header.style.transition = 'background-color 0.3s';
-			header.style.backgroundColor = '#181818';
-			header.style.borderBottom = 'solid 1px #2a2a2a';
-			header.style.boxShadow = 'none';
+		if (windowWidth > 950) {
+			if (savedDocument) {
+				let header = savedDocument.getElementsByTagName('header')[0];
+				if (y === 0 && !body.classList.contains('dark-mode')) {
+					header.style.backgroundColor = 'transparent';
+					header.style.transition = 'all 0.3s';
+					header.style.boxShadow = 'none';
+					header.style.borderBottom = 'none';
+				}
+				if (y === 0 && body.classList.contains('dark-mode')) {
+					header.style.transition = 'all 0.3s';
+					header.style.backgroundColor = 'transparent';
+					header.style.borderBottom = 'none';
+					header.style.boxShadow = 'none';
+				}
+				if (y > 0 && !body.classList.contains('dark-mode')) {
+					header.style.transition = 'all 0.3s';
+					header.style.backgroundColor = '#ffffff';
+					header.style.boxShadow = '0px -50px 60px 20px rgba(0, 0, 0, 0.75)';
+					header.style.borderBottom = 'none';
+				}
+				if (y > 0 && body.classList.contains('dark-mode')) {
+					header.style.transition = 'background-color 0.3s';
+					header.style.backgroundColor = '#181818';
+					header.style.borderBottom = 'solid 1px #2a2a2a';
+					header.style.boxShadow = 'none';
+				}
+			}
 		}
 	}
 
@@ -107,7 +104,6 @@
 			window.scrollTo({ top: y });
 		}
 	}
-
 
   function openMobileMenu() {
     mobileMenuEnabled = true;
@@ -139,49 +135,48 @@
     console.log('closed');
   }
 
-	$: updateHeader(y);
+	$: updateHeader(y, windowWidth);
 </script>
 
 <svelte:window bind:outerWidth={windowWidth} bind:scrollY={y} />
-{#if windowWidth <= 950}
-  <div class="menu-button-container">
-    <button id="mobile-menu-button" class="mobile-menu-button" on:click={openMobileMenu}>
-      <img src={angleLeft} alt="Menu" height="25px" width="25px"/>
-    </button>
-    <div class="theme-butt-mobile">
-      <Button />
-    </div>
-  </div>
-  {#if mobileMenuEnabled}
-    <div class="mobile-menu-container">
-      <div class="mobile-menu"
-        transition:fly={{ x: 200}}
-      >
-        <button class="mobile-home-butt" on:click={() => closeMobileMenu("home")}>Home</button>
-        <button class="mobile-about-butt" on:click={() => closeMobileMenu("about-title")}>About</button>
-        <button class="mobile-projects-butt" on:click={() => closeMobileMenu("projects-title")}>Projects</button>
-      </div>
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <!-- svelte-ignore a11y-no-static-element-interactions -->
-      <div
-        class="mobile-menu-blur" 
-        on:click={() => closeMobileMenu()}
-        transition:fade={{duration: 200}}
-      >
-      </div>
-    </div>
-  {/if}
-{:else}
-  <header>
-    <button on:click={() => window.scrollTo(0, 0)}>Home</button>
-    <button on:click={() => scrollTowards('about-title')}>About</button>
-    <button on:click={() => scrollTowards('projects-title')}>Projects</button>
-    <div class="theme-butt">
-      <Button />
-    </div>
-  </header>
-{/if}
 
+<header id="header" style={windowWidth >= 950 ? "display: flex" : "display: none"}>
+	<button on:click={() => window.scrollTo(0, 0)}>Home</button>
+	<button on:click={() => scrollTowards('about-title')}>About</button>
+	<button on:click={() => scrollTowards('projects-title')}>Projects</button>
+	<div class="theme-butt">
+		<Button />
+	</div>
+</header>
+
+<div class="menu-button-container" style={windowWidth < 950 ? "display: flex" : "display: none"}>
+	<button id="mobile-menu-button" class="mobile-menu-button" on:click={openMobileMenu}>
+		<img src={angleLeft} alt="Menu" height="25px" width="25px"/>
+	</button>
+	<div class="theme-butt-mobile">
+		<Button />
+	</div>
+</div>
+
+{#if mobileMenuEnabled}
+	<div class="mobile-menu-container">
+		<div class="mobile-menu"
+			transition:fly={{ x: 200}}
+		>
+			<button class="mobile-home-butt" on:click={() => closeMobileMenu("home")}>Home</button>
+			<button class="mobile-about-butt" on:click={() => closeMobileMenu("about-title")}>About</button>
+			<button class="mobile-projects-butt" on:click={() => closeMobileMenu("projects-title")}>Projects</button>
+		</div>
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		<div
+			class="mobile-menu-blur" 
+			on:click={() => closeMobileMenu()}
+			transition:fade={{duration: 200}}
+		>
+		</div>
+	</div>
+{/if}
 
 <style>
 	.theme-butt-mobile {
