@@ -71,4 +71,15 @@
 	section {
 		display: flex;
 	}
+
+	@media screen and (max-width: 950px) {
+		.first .foreground {
+			flex-direction: column;
+			gap: 90px;
+		}
+
+		.first h1 {
+			font-weight: 500;
+		}
+	}
 </style>
