@@ -68,7 +68,6 @@
 
 <style>
 	section {
-		transition: background-color 0.5s;
 		background-color: color(display-p3 1 0.664 0.453);
 		display: flex;
 		flex-direction: column;
@@ -110,8 +109,6 @@
 		font-weight: 1000;
 		font-size: 1.1em;
 		padding: 3px;
-		border-radius: 7px;
-		transition: all 0.2s;
 	}
 
 	a:hover {
