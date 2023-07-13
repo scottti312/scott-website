@@ -5,6 +5,8 @@
 	import { onMount } from 'svelte';
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
+	import bars from '$lib/images/bars.svg';
+	import { fade, fly } from 'svelte/transition';
 
 	inject({ mode: dev ? 'development' : 'production' });
 
@@ -14,18 +16,41 @@
 	let header;
 
 	/**
+	 * @type {HTMLElement}
+	 */
+	let body;
+
+	/**
 	 * @type {number}
 	 */
 	let y;
 
+	/**
+	 * @type {number}
+	 */
+	let windowWidth;
+
+	/**
+	 * @type {boolean}
+	*/
+	let mobileMenuEnabled = false;
+
+	// Document can only be read after page has been rendered
+	// So savedDocument is used to instantiate a saved document in onMount().
+	/**
+	 * @type {Document}
+	 */
+	let savedDocument;
+
 	onMount(() => {
+		savedDocument = document;
 		header = document.getElementsByTagName('header')[0];
+		body = document.body;
 		let isDarkReaderEnabled =
 			'querySelector' in document && !!document.querySelector('meta[name=darkreader]');
 		if (isDarkReaderEnabled) {
 			themeControl.beDark();
 			let bodyClass = window.document.body.classList;
-			let header = document.body.getElementsByTagName('header')[0];
 			bodyClass.toggle('dark-mode');
 		}
 	});
@@ -34,25 +59,32 @@
 	 * @param {number} y
 	 */
 	function updateHeader(y) {
-		if (y === 0 && !document.body.classList.contains('dark-mode')) {
+		if (windowWidth <= 950) {
+			return;
+		}
+
+		if (savedDocument) {
+			header = savedDocument.getElementsByTagName('header')[0];
+		}
+		if (y === 0 && !body.classList.contains('dark-mode')) {
 			header.style.backgroundColor = 'transparent';
 			header.style.transition = 'all 0.3s';
 			header.style.boxShadow = 'none';
 			header.style.borderBottom = 'none';
 		}
-		if (y === 0 && document.body.classList.contains('dark-mode')) {
+		if (y === 0 && body.classList.contains('dark-mode')) {
 			header.style.transition = 'all 0.3s';
 			header.style.backgroundColor = 'transparent';
 			header.style.borderBottom = 'none';
 			header.style.boxShadow = 'none';
 		}
-		if (y > 0 && !document.body.classList.contains('dark-mode')) {
+		if (y > 0 && !body.classList.contains('dark-mode')) {
 			header.style.transition = 'all 0.3s';
 			header.style.backgroundColor = '#ffffff';
 			header.style.boxShadow = '0px -50px 60px 20px rgba(0, 0, 0, 0.75)';
 			header.style.borderBottom = 'none';
 		}
-		if (y > 0 && document.body.classList.contains('dark-mode')) {
+		if (y > 0 && body.classList.contains('dark-mode')) {
 			header.style.transition = 'background-color 0.3s';
 			header.style.backgroundColor = '#181818';
 			header.style.borderBottom = 'solid 1px #2a2a2a';
@@ -64,7 +96,10 @@
 	 * @param {string} elementId
 	 */
 	function scrollTowards(elementId) {
-		const YOffset = -100;
+		let YOffset = -100;
+		if (windowWidth <= 950) {
+			YOffset = -40;
+		}
 		const element = document.getElementById(elementId);
 		const top = element?.getBoundingClientRect().top;
 		if (top) {
@@ -76,17 +111,50 @@
 	$: updateHeader(y);
 </script>
 
-<div class="app">
-	<header>
-		<button on:click={() => window.scrollTo(0, 0)}>Home</button>
-		<button on:click={() => scrollTowards('about-title')}>About</button>
-		<button on:click={() => scrollTowards('projects-title')}>Projects</button>
-		<!-- <button on:click={() => document.getElementById('contact')?.scrollIntoView()}>Contact</button> -->
-		<div class="theme-butt">
-			<Button />
-		</div>
-	</header>
+<svelte:window bind:outerWidth={windowWidth} bind:scrollY={y} />
 
+<div class="app">
+	{#if windowWidth <= 950}
+		<div class="menu-button-container">
+			<button class="mobile-hamburger" on:click={() => mobileMenuEnabled = true}>
+				<img src={bars} alt="Menu" height="25px" width="25px"/>
+			</button>
+			<div class="theme-butt-mobile">
+				<Button />
+			</div>
+		</div>
+		{#if mobileMenuEnabled}
+			<div class="mobile-menu-container">
+				<div class="mobile-menu"
+					transition:fly={{ x: 200}}
+				>
+					<button on:click={() => {window.scrollTo(0, 0); mobileMenuEnabled = false;}}>Home</button>
+					<button on:click={() => {scrollTowards('about-title'); mobileMenuEnabled = false;}}>About</button>
+					<button on:click={() => {scrollTowards('projects-title'); mobileMenuEnabled = false;}}>Projects</button>
+				</div>
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<!-- svelte-ignore a11y-no-static-element-interactions -->
+				<div
+					class="mobile-menu-blur" 
+					on:click={() => mobileMenuEnabled = false}
+					transition:fade={{duration: 200}}
+				>
+				</div>
+
+			</div>
+		{/if}
+	{:else}
+		<header>
+			<p>{windowWidth}</p>
+			<button on:click={() => window.scrollTo(0, 0)}>Home</button>
+			<button on:click={() => scrollTowards('about-title')}>About</button>
+			<button on:click={() => scrollTowards('projects-title')}>Projects</button>
+			<div class="theme-butt">
+				<Button />
+			</div>
+			<p>{y}</p>
+		</header>
+	{/if}
 	<main>
 		<slot />
 	</main>
@@ -95,8 +163,6 @@
 		<p>Made by Scott Ti. Thanks for visiting ❤️</p>
 	</footer>
 </div>
-
-<svelte:window bind:scrollY={y} />
 
 <style>
 	:global(body) {
@@ -115,6 +181,95 @@
 		min-height: 100vh;
 	}
 
+	.theme-butt-mobile {
+		z-index: 50;
+
+	}
+
+	.menu-button-container {
+		z-index: 50;
+		position: fixed;
+		top: 20px;
+		right: 10px;
+		gap: 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.mobile-hamburger {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+		padding: 0;
+	}
+
+	:global(body.dark-mode) .mobile-hamburger {
+		transition: all 0.3s;
+		filter: invert(1);
+	}
+
+	.mobile-menu-container {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0px;
+		top: 0px;
+	}
+
+	.mobile-menu {
+		display: flex;
+		flex-direction: column;
+		justify-content: left;
+		position: fixed;
+		top: 65px;
+		right: 50px;
+		z-index: 56;
+	}
+
+	.mobile-menu button {
+		display: flex;
+		border: none;
+		background: none;
+		cursor: pointer;
+		color: white;
+		font-size: 2em;
+		padding: 25px 100px 25px 0;
+		transition: all 0.3s ease;
+	}
+
+	.mobile-menu button:first-child {
+		border-bottom: 2px solid white;
+	}
+	.mobile-menu button:last-child {
+		border-top: 2px solid white;
+	}
+
+	@keyframes opacityFadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	.mobile-menu-blur {
+		/* animation: opacityFadeIn 0.5s ease; */
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		backdrop-filter: blur(2px);
+		z-index: 55;
+		background-color: rgba(0,0,0,0.8);
+	}
+
 	header {
 		position: fixed;
 		z-index: 10;
@@ -125,7 +280,6 @@
 		background-color: white;
 		box-shadow: none;
 		align-items: center;
-		animation: all 0.3s;
 	}
 
 	header button {
