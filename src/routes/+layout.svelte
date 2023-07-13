@@ -27,7 +27,7 @@
 	</main>
 	<footer>
 		<p>Made by Scott Ti. Thanks for visiting ❤️</p>
-			<a href="https://github.com/scottti312/scott-website">Visit the source code</a>
+			<a href="https://github.com/scottti312/scott-website">See the source code</a>
 	</footer>
 </div>
 
@@ -62,17 +62,23 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 12px;
-		background-color: transparent;
+		padding: 20px;
+		background-color: color(display-p3 1 0.664 0.453);
+		color: rgb(90, 53, 23);
+	}
+
+	:global(body.dark-mode) footer {
+		background-color: color(display-p3 0.570 0.223 0.112);
+		color: #ffdaba;
 	}
 
 	footer a {
 		text-decoration: underline;
+		padding: 5px;
 	}
 
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
+	footer a:hover {
+		background-color: #ffdaba;
 	}
+
 </style>
