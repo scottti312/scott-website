@@ -74,6 +74,7 @@
 		width: 100%;
 		padding: 250px 0 250px 0; 
 		color: rgb(90, 53, 23);
+		transition: all 0.5s ease;
 	}
 
 	:global(body.dark-mode) section {
