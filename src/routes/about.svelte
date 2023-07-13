@@ -1,8 +1,12 @@
+<script>
+	import resume from "$lib/Public_Resume.pdf";
+</script>
+
 <section id="about">
 	<div class="about">
 		<h3 id="about-title">About</h3>
 		<p>
-			Born in Seattle and raised in southern California. My first experience in programming was around 2009 when I got my first laptop, a late 2008 model
+			My name is Scott Ti (pronounced "tea"). I was born in Seattle and raised in southern California. My first experience in programming was around 2009 when I got my first laptop, a late 2008 model
 			MacBook. I started by coding small terminal programs in C using Xcode.
 		</p>
 		<p>
@@ -25,10 +29,12 @@
 				Email scott.ti312@gmail.com
 			</a>
 			<p>
-				Discord @__scott
+				Discord __scott
 			</p>
+			<a class="resume" href={resume} target="_blank">Resume</a>
 		</div>
 	</div>
+
 </section>
 
 <style>
@@ -52,7 +58,6 @@
 
 	h3 {
 		margin-top: 0;
-		font-weight: 1000;
 		font-size: 2.2em;
 	}
 
@@ -65,8 +70,7 @@
 	.links-list {
 		display: flex;
 		flex-direction: column;
-		min-width: 400px;
-		max-width: 400px;
+		width: 400px;
 	}
 
 	.links-list a {
@@ -74,8 +78,38 @@
 		text-decoration-thickness: 2px;
 	}
 
+	.links-list p {
+		margin-bottom: 15px;
+		max-height: 25px;
+		line-height: normal;
+	}
+
+	@font-face {
+		font-family: 'Inter-SemiBold';
+		src: url('../lib/Inter-SemiBold.woff');
+	}
+
+	.resume {
+		font-family: Inter-SemiBold;
+		margin-top: 50px;
+		font-size: 2.2em;
+		text-decoration: underline;
+		width: fit-content;
+		padding: 5px;
+	}
+
+	.resume:hover {
+		background-color: rgb(226, 247, 220);
+	}
+
+	:global(body.dark-mode) .resume:hover {
+		background-color: rgb(118, 141, 112);
+
+	}
+
 	.about p {
 		margin-top: 30px;
+		line-height: 1.5;
 	}
 
 	p, a {
