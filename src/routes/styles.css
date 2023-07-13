@@ -9,7 +9,23 @@ html {
 	src: url('../lib/Inter-Regular.woff');
 }
 
+@font-face {
+	font-family: 'Inter-Bold';
+	src: url('../lib/Inter-Bold.woff');
+}
+
+@font-face {
+	font-family: 'Inter-Medium';
+	src: url('../lib/Inter-Medium.woff');
+}
+
+@font-face {
+	font-family: 'Inter-SemiBold';
+	src: url('../lib/Inter-SemiBold.woff');
+}
+
 :root {
+	--font-header: Inter-Bold;
 	--font-body: Inter, sans-serif;
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
@@ -32,6 +48,14 @@ body {
 		),
 		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
 	color: var(--color-text);
+}
+
+h1 {
+	font-family: var(--font-header);
+}
+
+h2, h3 {
+	font-family: Inter-SemiBold;
 }
 
 h1,
