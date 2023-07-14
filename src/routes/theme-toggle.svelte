@@ -1,6 +1,6 @@
 <script>
 	import sun from '$lib/images/sun.png';
-	import moon from '$lib/images/moon.svg';
+	import moon from '$lib/images/moon.png';
 	import { themeControl } from './stores';
 
 	let transitionDone = true;
@@ -101,7 +101,7 @@
 	}
 
 	img.moon:hover {
-		transform: scale(1.3) rotate(-10deg);
+		transform: scale(1.3) rotate(15deg);
 	}
 
 	:global(body.dark-mode) img.sun {
