@@ -67,7 +67,7 @@
 		role="button"
 		tabindex="0"
 	>
-		<img src={sun} class="sun" alt="bright theme" height="25" width="25" />
+		<img src={moon} class="moon" alt="dark theme" height="25" width="25" />
 	</div>
 {/if}
 
@@ -80,7 +80,7 @@
 		role="button"
 		tabindex="0"
 	>
-		<img src={moon} class="moon" alt="dark theme" height="25" width="25" />
+		<img src={sun} class="sun" alt="bright theme" height="25" width="25" />
 	</div>
 {/if}
 
@@ -104,7 +104,7 @@
 		transform: scale(1.3) rotate(15deg);
 	}
 
-	:global(body.dark-mode) img.sun {
+	:global(body.dark-mode) img.moon {
 		filter: invert(1);
 	}
 </style>
