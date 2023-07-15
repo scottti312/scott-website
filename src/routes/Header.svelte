@@ -1,7 +1,7 @@
 <script>
 	import { themeControl } from './stores';
 	import './styles.css';
-	import ThemeButton from './theme-toggle.svelte';
+	import ThemeButton from './ThemeToggle.svelte';
 	import { onMount } from 'svelte';
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';

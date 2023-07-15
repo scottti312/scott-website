@@ -39,14 +39,7 @@
 
 <style>
 	section {
-		transition: background-color 0.5s ease;
 		background-color: color(display-p3 0.693 0.865 0.666);
-		display: flex;
-		width: 100%;
-		justify-content: center;
-    gap: 100px;
-		padding-top: 250px;
-		padding-bottom: 250px;
 		color: rgb(49, 77, 35);
 	}
 

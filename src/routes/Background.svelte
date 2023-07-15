@@ -25,7 +25,10 @@
 
 </script>
 
+
 <canvas id="gradient-canvas" data-transition-in />
+
+
 
 <style>
 	#gradient-canvas {
