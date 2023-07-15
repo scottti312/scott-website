@@ -19,13 +19,13 @@
 	<div class="links">
 		<h3>Links</h3>
 		<div class="links-list">
-			<a href="https://github.com/scottti312">
+			<a href="https://github.com/scottti312" target="_blank">
 				GitHub scottti312
 			</a>
-			<a href="https://www.linkedin.com/in/scott-ti/">
+			<a href="https://www.linkedin.com/in/scott-ti/" target="_blank">
 				LinkedIn scott-ti
 			</a>
-			<a href="mailto:scott.ti312@gmail.com">
+			<a href="mailto:scott.ti312@gmail.com" target="_blank">
 				Email scott.ti312@gmail.com
 			</a>
 			<p>

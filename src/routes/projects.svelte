@@ -3,14 +3,14 @@
 		<h3 id="projects-title">Projects</h3>
 		<div class="projects-grid">
 			<div>
-				<a href="https://github.com/scottti312/deal-webapp"> Deal Comparison Web Application </a>
+				<a href="https://github.com/scottti312/deal-webapp" target="_blank"> Deal Comparison Web Application </a>
 				<p>
 					A web app that provides the prices from major retailers such as Amazon, Walmart, Target
 					and Costco. Created collaboratively with 3 other people using agile methodology. Now deprecated due to scraping conflicts.
 				</p>
 			</div>
 			<div>
-				<a href="https://sticker-avenue.web.app/">
+				<a href="https://sticker-avenue.web.app/" target="_blank">
 					Sticker Avenue: An E-Commerce Storefront
 				</a>
 				<p>
@@ -19,7 +19,7 @@
 				</p>
 			</div>
 			<div>
-				<a href="https://github.com/scottti312/backpropagation">
+				<a href="https://github.com/scottti312/backpropagation" target="_blank">
 					Deep Neural Network From Scratch
 				</a>
 				<p>
@@ -27,7 +27,7 @@
 				</p>
 			</div>
 			<div>
-				<a href="https://scottti312.github.io/todo-app/">
+				<a href="https://scottti312.github.io/todo-app/" target="_blank">
 					To-Do Web Application
 				</a>
 				<p>
@@ -35,7 +35,7 @@
 				</p>
 			</div>
 			<div>
-				<a href="https://scottti312.github.io/battleship/">
+				<a href="https://scottti312.github.io/battleship/" target="_blank">
 					Battleship
 				</a>
 				<p>
@@ -43,7 +43,7 @@
 				</p>
 			</div>
 			<div>
-				<a href="https://github.com/scottti312/LastFMRecommender">
+				<a href="https://github.com/scottti312/LastFMRecommender" target="_blank">
 					Social Recommendation System For last.fm	
 				</a>
 				<p>
@@ -51,13 +51,13 @@
 				</p>
 			</div>
 			<div>
-				<a href="https://scottti312.github.io/react-card-game/">Card Memorization Game</a>
+				<a href="https://scottti312.github.io/react-card-game/" target="_blank">Card Memorization Game</a>
 				<p>
 					A simple memory card game. Includes two game difficulties. One of my first projects using React.
 				</p>
 			</div>
 			<div>
-				<a href="https://github.com/scottti312/dots">My Dotfiles</a>
+				<a href="https://github.com/scottti312/dots" target="_blank">My Dotfiles</a>
 				<p>
 					My dotfiles for Arch Linux. Currently running Hyprland and loving Wayland.
 				</p>
