@@ -3,7 +3,7 @@
 		<h3 id="projects-title">Projects</h3>
 		<div class="projects-grid">
 			<div>
-				<a href="https://github.com/scottti312/deal-webapp" target="_blank"> Deal Comparison Web Application </a>
+				<a href="https://github.com/scottti312/deal-webapp" target="_blank"> Deal! </a>
 				<p>
 					A web app that provides the prices from major retailers such as Amazon, Walmart, Target
 					and Costco. Created collaboratively with 3 other people using agile methodology. Now deprecated due to scraping conflicts.
@@ -11,7 +11,7 @@
 			</div>
 			<div>
 				<a href="https://sticker-avenue.web.app/" target="_blank">
-					Sticker Avenue: An E-Commerce Storefront
+					Sticker Avenue
 				</a>
 				<p>
 					A functional and beautiful (in my opinion) sticker store. Firebase used for user
@@ -51,7 +51,7 @@
 				</p>
 			</div>
 			<div>
-				<a href="https://scottti312.github.io/react-card-game/" target="_blank">Card Memorization Game</a>
+				<a href="https://scottti312.github.io/react-card-game/" target="_blank">Memory Game</a>
 				<p>
 					A simple memory card game. Includes two game difficulties. One of my first projects using React.
 				</p>
