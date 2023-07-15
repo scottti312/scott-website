@@ -32,7 +32,7 @@
 	</main>
 	<footer>
 		<p>Made by Scott Ti. Thanks for visiting ❤️</p>
-			<a href="https://github.com/scottti312/scott-website">See the source code</a>
+			<a href="https://github.com/scottti312/scott-website" target="_blank">See the source code</a>
 	</footer>
 </div>
 
