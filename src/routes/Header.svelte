@@ -326,8 +326,8 @@
 	}
 
 	header .theme-butt {
-		position: absolute;
-		right: 8vw;
+		position: relative;
+		left: 100px;
 	}
 
 	:global(body.dark-mode) header {
