@@ -7,7 +7,7 @@
 
 <svelte:head>
 	<title>Scott Ti</title>
-	<meta name="description" content="Scott's Website" />
+	<meta name="description" content="Scott Ti's portfolio website. Read more about me, my projects, and my resume." />
 </svelte:head>
 
 <Home />
