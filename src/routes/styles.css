@@ -58,6 +58,11 @@ h2, h3 {
 	font-family: Inter-SemiBold;
 }
 
+h3 {
+	margin-top: 0;
+	font-size: 2.2em;
+}
+
 h1,
 h2,
 p {
@@ -94,7 +99,7 @@ h2 {
 }
 
 section {
-	transition: background-color 0.5s ease;
+	transition: all 0.5s ease;
 	display: flex;
 	width: 100%;
 	justify-content: center;
