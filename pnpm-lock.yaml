@@ -50,6 +50,9 @@ devDependencies:
   svelte-check:
     specifier: ^3.4.3
     version: 3.4.5(postcss@8.4.25)(svelte@4.0.5)
+  svelte-collapsible:
+    specifier: ^0.2.2
+    version: 0.2.2
   tslib:
     specifier: ^2.4.1
     version: 2.6.0
@@ -1727,6 +1730,16 @@ packages:
       - sass
       - stylus
       - sugarss
+    dev: true
+
+  /svelte-collapse@0.1.2:
+    resolution: {integrity: sha512-0ZCbT6V/stHFxe4isKbduvZxnIIdktXeE8KQHtHyocx1bqEMbW1cCrbWiGBvbWp8yVVS58/33hQE5GzgQxby5w==}
+    dev: true
+
+  /svelte-collapsible@0.2.2:
+    resolution: {integrity: sha512-SFiZrxxHcmzNXq4+JLi+86/gvbN1kVfbkwFX8xIdYWjQO46JmkBVZb7Shf+KHklelvYcN406lRd3GsUjyhz+Wg==}
+    dependencies:
+      svelte-collapse: 0.1.2
     dev: true
 
   /svelte-eslint-parser@0.32.1(svelte@4.0.5):
