@@ -1,7 +1,7 @@
 <script>
 	import About from './About.svelte';
 	import Projects from './Projects.svelte';
-	import ThingsIUse from './ThingsIUse.svelte';
+	import Tools from './Tools.svelte';
 	import Home from './Home.svelte';
 </script>
 
@@ -12,5 +12,5 @@
 
 <Home />
 <About />
+<Tools />
 <Projects />
-<ThingsIUse />

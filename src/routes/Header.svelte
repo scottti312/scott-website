@@ -141,6 +141,7 @@
 <header id="header" style={windowWidth >= 950 ? "display: flex; background-color: transparent; border-bottom: none;" : "display: none;"}>
 	<button on:click={() => window.scrollTo(0, 0)}>Home</button>
 	<button on:click={() => scrollTowards('about-title')}>About</button>
+	<button on:click={() => scrollTowards('tools-title')}>Tools</button>
 	<button on:click={() => scrollTowards('projects-title')}>Projects</button>
 	<div class="theme-butt">
 		<ThemeButton />
@@ -163,6 +164,7 @@
 		>
 			<button class="mobile-home-butt" on:click={() => closeMobileMenu("home")}>Home</button>
 			<button class="mobile-about-butt" on:click={() => closeMobileMenu("about-title")}>About</button>
+			<button class="mobile-about-butt" on:click={() => closeMobileMenu("tools-title")}>Tools</button>
 			<button class="mobile-projects-butt" on:click={() => closeMobileMenu("projects-title")}>Projects</button>
 		</div>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
