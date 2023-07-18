@@ -62,6 +62,8 @@
 
   #tools-title {
     margin-bottom: 50px;
+    font-family: Inter-Bold;
+    font-weight: 500;
   }
 
   .tools-content {
