@@ -94,6 +94,8 @@
   }
 
   .more-message {
+    font-family: Inter-Medium;
+    font-weight: 500;
     margin-top: 100px;
     font-size: 1.3em;
   }
