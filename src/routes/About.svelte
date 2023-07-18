@@ -3,37 +3,39 @@
 </script>
 
 <section id="about">
-	<div class="about">
-		<h3 id="about-title">About</h3>
-		<p>
-			My name is Scott Ti (pronounced "tea"). I was born in Seattle and raised in Southern California. My first experience in programming was around 2009 when I got my first laptop, a late 2008 model
-			MacBook. I started by coding small terminal programs in C using Xcode.
-		</p>
-		<p>
-			Since then, I've learned a ton about computer science fundamentals and programming in general. I love learning to use new and cutting-edge technologies, even when they're not very well adapted. This website, for example, is a form of practice to learn Svelte/SvelteKit.
-		</p>
-		<p>
-			I hope to soon apply my knowledge and personal experience in a professional environment. I'm excited for what lies ahead and ready for any challenge.
-		</p>
-	</div>
-	<div class="links">
-		<h3>Links</h3>
-		<div class="links-list">
-			<a href="https://github.com/scottti312" target="_blank">
-				GitHub scottti312
-			</a>
-			<a href="https://www.linkedin.com/in/scott-ti/" target="_blank">
-				LinkedIn scott-ti
-			</a>
-			<a href="mailto:scott.ti312@gmail.com" target="_blank">
-				Email scott.ti312@gmail.com
-			</a>
+	<!-- <div class="about-container"> -->
+		<div class="about">
+			<h3 id="about-title">About</h3>
 			<p>
-				Discord __scott
+				My name is Scott Ti (pronounced "tea"). I was born in Seattle and raised in Southern California. My first experience in programming was around 2009 when I got my first laptop, a late 2008 model
+				MacBook. I started by coding small terminal programs in C using Xcode.
 			</p>
-			<a class="resume" href={resume} target="_blank">Resume</a>
+			<p>
+				Since then, I've learned a ton about computer science fundamentals and programming in general. I love learning to use new and cutting-edge technologies, even when they're not very well adapted. This website, for example, is a form of practice to learn Svelte/SvelteKit.
+			</p>
+			<p>
+				I hope to soon apply my knowledge and personal experience in a professional environment. I'm excited for what lies ahead and ready for any challenge.
+			</p>
 		</div>
-	</div>
+		<div class="links">
+			<h3>Links</h3>
+			<div class="links-list">
+				<a href="https://github.com/scottti312" target="_blank">
+					GitHub scottti312
+				</a>
+				<a href="https://www.linkedin.com/in/scott-ti/" target="_blank">
+					LinkedIn scott-ti
+				</a>
+				<a href="mailto:scott.ti312@gmail.com" target="_blank">
+					Email scott.ti312@gmail.com
+				</a>
+				<p>
+					Discord __scott
+				</p>
+				<a class="resume" href={resume} target="_blank">Resume</a>
+			</div>
+		</div>
+	<!-- </div> -->
 
 </section>
 
@@ -45,7 +47,7 @@
 
 	:global(body.dark-mode) section {
 		background-color: color(display-p3 0.23 0.35 0.2);
-		color: rgb(214, 255, 197);
+		color: rgb(199, 245, 180);
 	}
 
 	h3 {
@@ -59,10 +61,13 @@
 		max-width: 500px;
 	}
 
+	.links {
+		width: 400px;
+	}
+
 	.links-list {
 		display: flex;
 		flex-direction: column;
-		width: 400px;
 	}
 
 	.links-list a {
@@ -112,6 +117,7 @@
 
 	@media screen and (max-width: 950px) {
 		section {
+			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
@@ -119,11 +125,10 @@
 		}
 
 		.about {
+			max-width: 400px;
 			margin-left: 0;
 			padding-bottom: 60px;
-			min-width: 300px;
-			max-width: 300px;
-			border-bottom: solid rgb(27, 39, 20) 2px;
+			border-bottom: solid rgb(28, 39, 20) 2px;
 		}
 
 		.links-list {
