@@ -1,6 +1,5 @@
 <script>
   import { Accordion, AccordionItem } from 'svelte-collapsible';
-  import triangle from '$lib/images/triangle.png';
 	import Collapsible from './Collapsible.svelte';
 
   /**
