@@ -66,6 +66,7 @@
 		on:outroend={done}
 		role="button"
 		tabindex="0"
+		style="height: 25px; width: 25px;"
 	>
 		<img src={moon} class="moon" alt="dark theme" height="25" width="25" />
 	</div>
@@ -79,6 +80,7 @@
 		on:outroend={done}
 		role="button"
 		tabindex="0"
+		style="height: 25px; width: 25px;"
 	>
 		<img src={sun} class="sun" alt="bright theme" height="25" width="25" />
 	</div>
