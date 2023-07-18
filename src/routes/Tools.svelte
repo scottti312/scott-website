@@ -45,7 +45,7 @@
           {/each}
         {/if}
       </div>
-      <h4 class="more-message">More to come. Should I make a blog?</h4>
+      <h4 class="more-message">More to come. Should I start a blog?</h4>
     </div>
   </section>
 
@@ -106,12 +106,14 @@
 
     .content-description {
       padding: 50px;
-      min-width: 400px;
-      max-width: 400px;
     }
 
     .tools-content {
       gap: 0px;
+    }
+
+    .tools {
+      width: 300px;
     }
     
     .content-title {

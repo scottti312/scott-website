@@ -89,8 +89,6 @@
     .content-description {
       font-size: 1.1em;
       max-width: 700px;
-      min-width: 400px;
-      max-width: 400px;
       line-height: 1.5;
     }
 

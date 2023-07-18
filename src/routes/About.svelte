@@ -57,7 +57,6 @@
 
 	.about {
 		margin-left: 70px;
-		min-width: 400px;
 		max-width: 500px;
 	}
 
@@ -125,10 +124,14 @@
 		}
 
 		.about {
-			max-width: 400px;
+			max-width: 300px;
 			margin-left: 0;
 			padding-bottom: 60px;
 			border-bottom: solid rgb(28, 39, 20) 2px;
+		}
+
+		.links {
+			width: 300px;
 		}
 
 		.links-list {
