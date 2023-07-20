@@ -127,7 +127,7 @@
 			max-width: 300px;
 			margin-left: 0;
 			padding-bottom: 60px;
-			border-bottom: solid rgb(28, 39, 20) 2px;
+			border-bottom: solid rgb(28, 39, 20) 4px;
 		}
 
 		.links {
@@ -150,7 +150,7 @@
 		}
 
 		:global(body.dark-mode) .about {
-			border-bottom: solid rgb(214, 255, 197) 2px;
+			border-bottom: solid rgb(214, 255, 197) 4px;
 		}
 	}
 </style>
