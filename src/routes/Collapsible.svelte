@@ -36,32 +36,32 @@
    }
 
 </script>
+<div class="accordion-item">
+  <Accordion duration={0.5} easing="ease-out" key="a" >
+    <AccordionItem key=null>
+      <button slot='header' class='content-title' on:click={descriptionClosed ? openDescription : closeDescription} >
+        <h3 class='content-title'>
+          {title}
+        </h3>
+        <img 
+        id={id} 
+        src={darkTriangle} 
+        alt="open triangle" 
+        transition:fade={{duration: 200}}
+        style={`
+          transition: all 0.3s;
+          ${$themeControl ? (descriptionClosed ? "" : "transform: rotate(60deg);") : (descriptionClosed ? "filter: invert(1) hue-rotate(180deg);" : "filter: invert(1) hue-rotate(180deg); transform: rotate(60deg);")}
+        `} 
+        width="15"
+        height="15"/>
+      </button>
+      <p slot='body' class='content-description'>
+        {@html description}
+      </p>
+    </AccordionItem>
+  </Accordion>
+</div>
 
-<Accordion duration={0.5} easing="ease-out" key="a" >
-  <AccordionItem key=null>
-    <button slot='header' class='content-title' on:click={descriptionClosed ? openDescription : closeDescription} >
-      <h3 class='content-title'>
-        {title}
-      </h3>
-      <img 
-      id={id} 
-      src={darkTriangle} 
-      alt="open triangle" 
-      transition:fade={{duration: 200}}
-      style={`
-        transition: all 0.3s;
-        ${$themeControl ? (descriptionClosed ? "" : "transform: rotate(60deg);") : (descriptionClosed ? "filter: invert(1) hue-rotate(180deg);" : "filter: invert(1) hue-rotate(180deg); transform: rotate(60deg);")}
-      `} 
-      width="15"
-      height="15"/>
-    </button>
-    <p slot='body' class='content-description'>
-      {@html description}
-    </p>
-  </AccordionItem>
-</Accordion>
-
-<div style='--id:{id};'></div>
 
 <style>
     .content-title {
@@ -87,9 +87,18 @@
     }
 
     .content-description {
-      font-size: 1.1em;
+      font-size: 1em;
       max-width: 700px;
-      line-height: 1.5;
+      line-height: 1.8;
+    }
+
+    .accordion-item {
+      border-bottom: 4px solid rgb(60, 40, 92);
+    }
+
+    :global(body.dark-mode) .accordion-item {
+      transition: all 0.3s ease;
+      border-bottom: 4px solid rgb(211, 186, 240);
     }
 
 </style>
