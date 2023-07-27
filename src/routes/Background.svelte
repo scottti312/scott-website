@@ -7,7 +7,6 @@
   onMount(() => {
     // @ts-ignore
     gradient.initGradient('#gradient-canvas');
-    gradient.connect();
   });
   let day = true;
 
@@ -15,7 +14,6 @@
   function themeToggle() {
     // @ts-ignore
     gradient.initGradient('#gradient-canvas');
-    gradient.connect();
   }
 
   afterUpdate(() => {
