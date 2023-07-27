@@ -111,7 +111,7 @@
 	p, a {
 		max-width: 500px;
 		font-size: 1.3em;
-		font-weight: 600;
+		font-weight: 500;
 	}
 
 	@media screen and (max-width: 950px) {
