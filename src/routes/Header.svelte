@@ -256,13 +256,6 @@
 		font-size: 2.5em;
 	}
 
-	/* .mobile-menu button:first-child {
-		border-bottom: 4px solid white;
-	} */
-	/* .mobile-menu button:last-child {
-		border-top: 4px solid white;
-	} */
-
 	@keyframes opacityFadeInn {
 		from {
 			opacity: 0;
@@ -273,7 +266,6 @@
 	}
 
 	.mobile-menu-blur {
-		/* animation: opacityFadeIn 0.5s ease; */
 		position: fixed;
 		left: 0px;
 		top: 0px;
@@ -294,6 +286,7 @@
 		background-color: white;
 		box-shadow: none;
 		align-items: center;
+		transition: all 2s;
 	}
 
 	header button {
@@ -304,6 +297,7 @@
 		background: none;
 		font: inherit;
 		cursor: pointer;
+		transition: all 1s;
 	}
 
 	header button::after {
@@ -334,14 +328,14 @@
 
 	:global(body.dark-mode) header {
 		background-color: #181818;
-		transition: background-color 0.3s;
 		border-bottom: solid 1px #2a2a2a;
 		box-shadow: none;
+		transition: all 2s;
 	}
 
 	:global(body.dark-mode) header button {
 		color: white;
-		transition: all 0.3s;
+		transition: all 1s;
 	}
 
 </style>
