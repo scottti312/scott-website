@@ -94,10 +94,10 @@
 
     .accordion-item {
       border-bottom: 4px solid rgb(60, 40, 92);
+      transition: all 0.5s ease;
     }
 
     :global(body.dark-mode) .accordion-item {
-      transition: all 0.3s ease;
       border-bottom: 4px solid rgb(211, 186, 240);
     }
 
