@@ -36,6 +36,11 @@
 			description: "A simple memory card game. Includes two game difficulties. One of my first projects using React.",
 		},
 		{
+			title: "Temperature/Humidity Alarm",
+			link: "https://github.com/scottti312/arduino-alarm/",
+			description: "A temperature humidity monitoring and alarm system. When the humidity reaches any set threshold, the buzzer will beep and the current time will freeze until the system is reset.",
+		},
+		{
 			title: "My Dotfiles",
 			link: "https://github.com/scottti312/dots",
 			description: "My dotfiles for Arch Linux. Currently running Hyprland and loving Wayland.",
