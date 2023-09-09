@@ -41,6 +41,11 @@
 			description: "A temperature humidity monitoring and alarm system. When the humidity reaches any set threshold, the buzzer will beep and the current time will freeze until the system is reset.",
 		},
 		{
+			title: "Express Local Library",
+			link: "https://express-library-production-8520.up.railway.app/catalog",
+			description: "A very simple library API/Website used for learning Express, Pug templates, and developing APIs on the web.",
+		},
+		{
 			title: "My Dotfiles",
 			link: "https://github.com/scottti312/dots",
 			description: "My dotfiles for Arch Linux. Currently running Hyprland and loving Wayland.",
