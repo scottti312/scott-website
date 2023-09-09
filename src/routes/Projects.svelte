@@ -43,7 +43,7 @@
 		{
 			title: "Express Local Library",
 			link: "https://express-library-production-8520.up.railway.app/catalog",
-			description: "A very simple library API/Website used for learning Express, Pug templates, and developing APIs on the web.",
+			description: "A library API/Website used as a way to learn Express, Pug templates, and developing general APIs on the web. Utilizes compressed responses and rate limiting in production.",
 		},
 		{
 			title: "My Dotfiles",
