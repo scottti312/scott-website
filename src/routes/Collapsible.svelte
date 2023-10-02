@@ -87,18 +87,32 @@
     }
 
     .content-description {
-      font-size: 1em;
+      padding-top: 20px;
+      font-size: 1.1em;
       max-width: 700px;
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
     .accordion-item {
-      border-bottom: 4px solid rgb(60, 40, 92);
       transition: all 0.5s ease;
+      text-align: center;
+      background-color: rgb(208, 176, 245);
+      border-radius: 20px;
+      padding: 10px 20px 10px 20px;
+    }
+
+    @media screen and (max-width: 950px) {
+      .accordion-item {
+        padding: 10px;
+      }
+
+      .content-description  {
+        line-height: 1.5;
+      }
     }
 
     :global(body.dark-mode) .accordion-item {
-      border-bottom: 4px solid rgb(211, 186, 240);
+      background-color: rgb(44, 25, 73);
     }
 
 </style>
