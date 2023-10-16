@@ -14,7 +14,7 @@
 				Since then, I've learned a ton about computer science fundamentals and programming in general. I love learning to use new and cutting-edge technologies, even when they're not very well adapted. This website, for example, is a form of practice to learn Svelte/SvelteKit.
 			</p>
 			<p>
-				I hope to soon apply my knowledge and personal experience in a professional environment. I'm excited for what lies ahead and ready for any challenge.
+				Currently at Boeing as a Software Engineer.
 			</p>
 		</div>
 		<div class="links">
