@@ -53,7 +53,7 @@
 	]
 </script>
 
-<section>
+<section id="projects">
 	<div class="projects">
 		<h3 id="projects-title">Projects</h3>
 		<div class="projects-grid">

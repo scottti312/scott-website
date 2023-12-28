@@ -60,22 +60,28 @@
           {#each items as item}
             {#if item.description != null}
               <Collapsible title={item.title} description={item.description} id={item.id}/>
-            {:else}
-              <h3 class='content-title'>
-                {item.title}
-              </h3>
             {/if}
-            <!-- <div class='content-section'>
-              <h3 class='content-title'>
-                {item.title} 
-              </h3>
-              {#if item.description != null}
-              <p class='content-description'>
-                {@html item.description}
-              </p>
-              {/if}
-            </div> -->
           {/each}
+
+          <div class="things-content-container">
+            {#each items as item}
+                {#if item.description == null}
+                  <h4 class='content-title'>
+                    {item.title}
+                  </h4>
+                {/if}
+              <!-- <div class='content-section'>
+                <h3 class='content-title'>
+                  {item.title} 
+                </h3>
+                {#if item.description != null}
+                <p class='content-description'>
+                  {@html item.description}
+                </p>
+                {/if}
+              </div> -->
+            {/each}
+          </div>
         {:else}
           {#each items as item}
             {#if item.description != null}
@@ -112,15 +118,23 @@
   .things-content {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .things-content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
   }
 
   .content-title {
     font-size: 1.3em;
-    line-height: 1.5;
+    line-height: 1;
     margin: 0;
     color: rgb(60, 40, 92);
-    text-align: center;
+    text-align: left;
   }
 
   :global(body.dark-mode) .content-title {
@@ -137,18 +151,10 @@
   @media screen and (max-width: 950px) {
     .things-content {
       gap: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
     .things {
       width: 300px;
-    }
-    
-    .content-title {
-      line-height: normal;
-      min-width: auto;
     }
   }
 </style>

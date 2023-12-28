@@ -93,7 +93,7 @@
 	 * @param {string} elementId
 	 */
 	function scrollTowards(elementId) {
-		let YOffset = -100;
+		let YOffset = 0;
 		if (windowWidth <= 950) {
 			YOffset = -40;
 		}
@@ -140,9 +140,9 @@
 
 <header id="header" style={windowWidth >= 950 ? "display: flex; background-color: transparent; border-bottom: none;" : "display: none;"}>
 	<button on:click={() => window.scrollTo(0, 0)}>Home</button>
-	<button on:click={() => scrollTowards('about-title')}>About</button>
-	<button on:click={() => scrollTowards('things-title')}>Things I Use</button>
-	<button on:click={() => scrollTowards('projects-title')}>Projects</button>
+	<button on:click={() => scrollTowards('about')}>About</button>
+	<button on:click={() => scrollTowards('things')}>Things I Use</button>
+	<button on:click={() => scrollTowards('projects')}>Projects</button>
 	<div class="theme-butt">
 		<ThemeButton />
 	</div>
@@ -164,7 +164,7 @@
 		>
 			<button class="mobile-home-butt" on:click={() => closeMobileMenu("home")}>Home</button>
 			<button class="mobile-about-butt" on:click={() => closeMobileMenu("about-title")}>About</button>
-			<button class="mobile-about-butt" on:click={() => closeMobileMenu("things-title")}>Things I Use</button>
+			<button class="mobile-things-butt" on:click={() => closeMobileMenu("things-title")}>Things I Use</button>
 			<button class="mobile-projects-butt" on:click={() => closeMobileMenu("projects-title")}>Projects</button>
 		</div>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -248,6 +248,11 @@
 
 	.mobile-menu .mobile-about-butt:hover {
 		color: #A5DEA5;
+		font-size: 2.5em;
+	}
+
+	.mobile-menu .mobile-things-butt:hover {
+		color: #D2C9EC;
 		font-size: 2.5em;
 	}
 

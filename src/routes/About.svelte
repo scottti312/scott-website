@@ -58,7 +58,6 @@
 	.about {
 		margin-left: 70px;
 		max-width: 500px;
-		transition: all 0.5s;
 	}
 
 	.links {
