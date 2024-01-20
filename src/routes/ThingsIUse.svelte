@@ -118,15 +118,17 @@
   .things-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
   }
 
   .things-content-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
   }
 
   .content-title {
