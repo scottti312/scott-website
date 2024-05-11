@@ -54,7 +54,8 @@ h1 {
 	font-family: var(--font-header);
 }
 
-h2, h3 {
+h2,
+h3 {
 	font-family: Inter-SemiBold;
 }
 
@@ -96,15 +97,21 @@ section {
 	/* transition: all 0.5s ease; */
 	display: flex;
 	width: 100%;
+	height: min(100vh);
 	justify-content: center;
 	gap: 100px;
-	padding-top: 150px;
-	padding-bottom: 300px;
 	transition: all 0.5s;
 	flex-grow: 1;
+	padding: min(10%), 0, min(10%), 0;
 }
 
-h1, h2, h3, h4, p, a, button {
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+button {
 	transition: all 0.5s ease-out;
 }
 
@@ -118,4 +125,11 @@ h1, h2, h3, h4, p, a, button {
 	position: absolute;
 	width: 1px;
 	white-space: nowrap;
+}
+
+@media screen and (max-width: 950px) {
+	section {
+		height: 100%;
+		padding: 30% 0 30% 0;
+	}
 }

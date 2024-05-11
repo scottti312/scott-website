@@ -103,6 +103,13 @@
 		color: rgb(60, 40, 92);
 	}
 
+	.things {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
 	:global(body.dark-mode) #things {
 		background-color: color(display-p3 0.229 0.179 0.325);
 		color: rgb(211, 186, 240);

@@ -1,42 +1,41 @@
 <script>
-	import resume from "$lib/Public_Resume.pdf";
+	import resume from '$lib/Public_Resume.pdf';
 </script>
 
 <section id="about">
 	<!-- <div class="about-container"> -->
-		<div class="about">
-			<h3 id="about-title">About</h3>
-			<p>
-				My name is Scott Ti (pronounced "tea"). I was born in Seattle and raised in Southern California. My first experience in programming was around 2009 when I got my first laptop, a late 2008 model
-				MacBook. I started by coding small terminal programs in C using Xcode.
-			</p>
-			<p>
-				Since then, I've learned a ton about computer science fundamentals and programming in general. I love learning to use new and cutting-edge technologies, even when they're not very well adapted. This website, for example, is a form of practice to learn Svelte/SvelteKit.
-			</p>
-			<p>
-				Currently at Boeing as a Software Engineer.
-			</p>
-		</div>
-		<div class="links">
-			<h3>Links</h3>
-			<div class="links-list">
-				<a href="https://github.com/scottti312" target="_blank">
-					GitHub scottti312
-				</a>
-				<a href="https://www.linkedin.com/in/scott-ti/" target="_blank">
-					LinkedIn scott-ti
-				</a>
-				<a href="mailto:scott.ti312@gmail.com" target="_blank">
-					Email scott.ti312@gmail.com
-				</a>
-				<p>
-					Discord __scott
-				</p>
-				<a class="resume" href={resume} target="_blank">Resume</a>
+	<div class="about-wrapper">
+		<div class="about-container">
+			<div class="about">
+				<h3 id="about-title">About</h3>
+				<div class="about-description">
+					<p>
+						My name is Scott Ti (pronounced "tea"). I was born in Seattle and raised in Southern
+						California. My first experience in programming was around 2009 when I got my first
+						laptop, a late 2008 model MacBook. I started by coding small terminal programs in C
+						using Xcode.
+					</p>
+					<p>
+						Since then, I've learned a ton about computer science fundamentals and programming in
+						general. I love learning to use new and cutting-edge technologies, even when they're not
+						very well adapted. This website, for example, is a form of practice to learn
+						Svelte/SvelteKit.
+					</p>
+					<p>Currently at Boeing as a Software Engineer.</p>
+				</div>
+			</div>
+			<div class="links">
+				<h3>Links</h3>
+				<div class="links-list">
+					<a href="https://github.com/scottti312" target="_blank"> GitHub scottti312 </a>
+					<a href="https://www.linkedin.com/in/scott-ti/" target="_blank"> LinkedIn scott-ti </a>
+					<a href="mailto:scott.ti312@gmail.com" target="_blank"> Email scott.ti312@gmail.com </a>
+					<a class="resume" href={resume} target="_blank">Resume</a>
+				</div>
 			</div>
 		</div>
+	</div>
 	<!-- </div> -->
-
 </section>
 
 <style>
@@ -51,13 +50,33 @@
 	}
 
 	h3 {
-		margin-top: 0;
+		margin: 0;
 		font-size: 2.2em;
+	}
+
+	.about-wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.about-container {
+		display: flex;
+		flex-direction: row;
+		gap: 100px;
 	}
 
 	.about {
 		margin-left: 70px;
 		max-width: 500px;
+		display: flex;
+		flex-direction: column;
+		align-items: left;
+	}
+
+	.about-description {
+		align-items: left;
 	}
 
 	.links {
@@ -67,6 +86,7 @@
 	.links-list {
 		display: flex;
 		flex-direction: column;
+		margin-top: 30px;
 	}
 
 	.links-list a {
@@ -100,7 +120,6 @@
 
 	:global(body.dark-mode) .resume:hover {
 		background-color: rgb(118, 141, 112);
-
 	}
 
 	.about p {
@@ -108,7 +127,8 @@
 		line-height: 1.5;
 	}
 
-	p, a {
+	p,
+	a {
 		max-width: 500px;
 		font-size: 1.3em;
 		font-weight: 500;
@@ -130,6 +150,11 @@
 			border-bottom: solid rgb(28, 39, 20) 4px;
 		}
 
+		.about-container {
+			flex-direction: column;
+			gap: 60px;
+		}
+
 		.links {
 			width: 300px;
 		}
@@ -144,7 +169,8 @@
 			font-weight: 500;
 		}
 
-		p, a {
+		p,
+		a {
 			font-size: 1.1em;
 			font-weight: 400;
 		}

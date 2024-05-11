@@ -1,56 +1,65 @@
 <script>
 	let projects = [
 		{
-			title: "Deal!",
-			link: "https://github.com/scottti312/deal-webapp",
-			description: "A web app that provides the prices from major retailers such as Amazon, Walmart, Target and Costco. Created collaboratively with 3 other people using agile methodology. Now deprecated due to scraping conflicts."
+			title: 'Deal!',
+			link: 'https://github.com/scottti312/deal-webapp',
+			description:
+				'A web app that provides the prices from major retailers such as Amazon, Walmart, Target and Costco. Created collaboratively with 3 other people using agile methodology. Now deprecated due to scraping conflicts.'
 		},
 		{
-			title: "Sticker Avenue",
-			link: "https://sticker-avenue.web.app/",
-			description: "A functional and beautiful (in my opinion) sticker store. Firebase used for user authentication and storing cart data. No transactions, just add stickers to the cart.",
+			title: 'Sticker Avenue',
+			link: 'https://sticker-avenue.web.app/',
+			description:
+				'A functional and beautiful (in my opinion) sticker store. Firebase used for user authentication and storing cart data. No transactions, just add stickers to the cart.'
 		},
 		{
-			title: "Deep Neural Network from Scratch",
-			link: "https://github.com/scottti312/backpropagation",
-			description: "A deep neural network with backpropagation made from scratch without any ML libraries. Detects and learns patterns of handwritten digits using the MNIST dataset.",
+			title: 'Deep Neural Network from Scratch',
+			link: 'https://github.com/scottti312/backpropagation',
+			description:
+				'A deep neural network with backpropagation made from scratch without any ML libraries. Detects and learns patterns of handwritten digits using the MNIST dataset.'
 		},
 		{
-			title: "To-Do Web Application",
-			link: "https://scottti312.github.io/todo-app/",
-			description: "A fully-functional To-Do list web application made with pure JavaScript and CSS only. Uses local storage to store list data.",
+			title: 'To-Do Web Application',
+			link: 'https://scottti312.github.io/todo-app/',
+			description:
+				'A fully-functional To-Do list web application made with pure JavaScript and CSS only. Uses local storage to store list data.'
 		},
 		{
-			title: "Battleship",
-			link: "https://scottti312.github.io/battleship/",
-			description: "Very rudimentary implementation of the classic game, Battleship. This project was a practice of test-driven development using JavaScript and Jest.",
+			title: 'Battleship',
+			link: 'https://scottti312.github.io/battleship/',
+			description:
+				'Very rudimentary implementation of the classic game, Battleship. This project was a practice of test-driven development using JavaScript and Jest.'
 		},
 		{
-			title: "Social Recommendation System for last.fm",
-			link: "https://github.com/scottti312/LastFMRecommender",
-			description: "Recommends music based on user and friends' listening habits and social networking. An algorithm assignment where I experimented with graphs and relationships between data.",
+			title: 'Social Recommendation System for last.fm',
+			link: 'https://github.com/scottti312/LastFMRecommender',
+			description:
+				"Recommends music based on user and friends' listening habits and social networking. An algorithm assignment where I experimented with graphs and relationships between data."
 		},
 		{
-			title: "Memory Game",
-			link: "https://scottti312.github.io/react-card-game/",
-			description: "A simple memory card game. Includes two game difficulties. One of my first projects using React.",
+			title: 'Memory Game',
+			link: 'https://scottti312.github.io/react-card-game/',
+			description:
+				'A simple memory card game. Includes two game difficulties. One of my first projects using React.'
 		},
 		{
-			title: "Temperature/Humidity Alarm",
-			link: "https://github.com/scottti312/arduino-alarm/",
-			description: "A temperature humidity monitoring and alarm system. When the humidity reaches any set threshold, the buzzer will beep and the current time will freeze until the system is reset.",
+			title: 'Temperature/Humidity Alarm',
+			link: 'https://github.com/scottti312/arduino-alarm/',
+			description:
+				'A temperature humidity monitoring and alarm system. When the humidity reaches any set threshold, the buzzer will beep and the current time will freeze until the system is reset.'
 		},
 		{
-			title: "Express Local Library",
-			link: "https://express-library-production-8520.up.railway.app/catalog",
-			description: "A library API/Website used as a way to learn Express, Pug templates, and developing general APIs on the web. Utilizes compressed responses and rate limiting in production.",
+			title: 'Express Local Library',
+			link: 'https://express-library-production-8520.up.railway.app/catalog',
+			description:
+				'A library API/Website used as a way to learn Express, Pug templates, and developing general APIs on the web. Utilizes compressed responses and rate limiting in production.'
 		},
 		{
-			title: "My Dotfiles",
-			link: "https://github.com/scottti312/dots",
-			description: "My dotfiles for Arch Linux. Currently running Hyprland and loving Wayland.",
-		},
-	]
+			title: 'My Dotfiles',
+			link: 'https://github.com/scottti312/dots',
+			description: 'My dotfiles for Arch Linux. Currently running Hyprland and loving Wayland.'
+		}
+	];
 </script>
 
 <section id="projects">
@@ -80,7 +89,7 @@
 	}
 
 	:global(body.dark-mode) section {
-		background-color: color(display-p3 0.570 0.223 0.112);
+		background-color: color(display-p3 0.57 0.223 0.112);
 		color: #ebb270;
 	}
 
@@ -93,8 +102,7 @@
 
 	.projects-grid {
 		display: grid;
-		grid-template-rows: repeat(auto-fit, 150px);
-		grid-template-columns: repeat(auto-fit, 400px);
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		justify-content: center;
 		gap: 30px;
 		width: 80%;
@@ -127,8 +135,7 @@
 
 	@media screen and (max-width: 950px) {
 		.projects-grid {
-			grid-template-columns: repeat(auto-fit, 300px);
-			grid-template-rows: repeat(auto-fit, 200px);
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 		}
 
 		h3 {
