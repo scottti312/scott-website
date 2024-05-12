@@ -97,12 +97,13 @@ section {
 	/* transition: all 0.5s ease; */
 	display: flex;
 	width: 100%;
-	height: min(100vh);
+	min-height: 100vh;
+	height: auto;
 	justify-content: center;
 	gap: 100px;
 	transition: all 0.5s;
 	flex-grow: 1;
-	padding: min(10%), 0, min(10%), 0;
+	padding: min(10%) 0;
 }
 
 h1,
