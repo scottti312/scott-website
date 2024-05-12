@@ -5,7 +5,7 @@
 	import { onMount } from 'svelte';
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
-  import angleLeft from '$lib/images/angle-left.svg';
+	import angleLeft from '$lib/images/angle-left.svg';
 	import { fade, fly } from 'svelte/transition';
 
 	inject({ mode: dev ? 'development' : 'production' });
@@ -26,8 +26,13 @@
 	let windowWidth;
 
 	/**
+	 * @type {number}
+	 */
+	let windowHeight;
+
+	/**
 	 * @type {boolean}
-	*/
+	 */
 	let mobileMenuEnabled = false;
 
 	// Document can only be read after page has been rendered
@@ -99,58 +104,65 @@
 		}
 		const element = document.getElementById(elementId);
 		const top = element?.getBoundingClientRect().top;
-		if (top) {
+		if (top && windowWidth > 950) {
+			const y = top + window.scrollY + YOffset - windowHeight / 4;
+			window.scrollTo(0, y);
+		} else if (top && windowWidth <= 950) {
 			const y = top + window.scrollY + YOffset;
 			window.scrollTo({ top: y });
 		}
 	}
 
-  function openMobileMenu() {
-    mobileMenuEnabled = true;
-    let button = document.getElementById("mobile-menu-button");
-    if (button) {
-      button.style.transition = "all 0.5s ease";
-      button.style.transform = "rotate(180deg)";
-    }
-  }
+	function openMobileMenu() {
+		mobileMenuEnabled = true;
+		let button = document.getElementById('mobile-menu-button');
+		if (button) {
+			button.style.transition = 'all 0.5s ease';
+			button.style.transform = 'rotate(180deg)';
+		}
+	}
 
-  /**
+	/**
 	 * @param {string | undefined} [element]
 	 */
-  function closeMobileMenu(element) {
-    mobileMenuEnabled = false
-    let button = document.getElementById("mobile-menu-button");
-    if (button) {
-      button.style.transform = "rotate(0deg)";
-    }
-    if (element === undefined) {
-      return;
-    }
-    else if (element === "home") {
-      window.scrollTo(0, 0);
-    } else {
-      scrollTowards(element);
-    }
-  }
+	function closeMobileMenu(element) {
+		mobileMenuEnabled = false;
+		let button = document.getElementById('mobile-menu-button');
+		if (button) {
+			button.style.transform = 'rotate(0deg)';
+		}
+		if (element === undefined) {
+			return;
+		} else if (element === 'home') {
+			window.scrollTo(0, 0);
+		} else {
+			scrollTowards(element);
+		}
+	}
 
 	$: updateHeader(y, windowWidth);
 </script>
 
-<svelte:window bind:outerWidth={windowWidth} bind:scrollY={y} />
+<svelte:window bind:innerHeight={windowHeight} bind:outerWidth={windowWidth} bind:scrollY={y} />
 
-<header id="header" style={windowWidth >= 950 ? "display: flex; background-color: transparent; border-bottom: none;" : "display: none;"}>
+<header
+	id="header"
+	style={windowWidth >= 950
+		? 'display: flex; background-color: transparent; border-bottom: none;'
+		: 'display: none;'}
+>
 	<button on:click={() => window.scrollTo(0, 0)}>Home</button>
-	<button on:click={() => scrollTowards('about')}>About</button>
-	<button on:click={() => scrollTowards('things')}>Things I Use</button>
-	<button on:click={() => scrollTowards('projects')}>Projects</button>
+	<button on:click={() => scrollTowards('about-title')}>About</button>
+	<button on:click={() => scrollTowards('things-title')}>Things I Use</button>
+	<button on:click={() => scrollTowards('projects-title')}>Projects</button>
 	<div class="theme-butt">
 		<ThemeButton />
 	</div>
 </header>
 
-<div class="menu-button-container" style={windowWidth < 950 ? "display: flex" : "display: none"}>
+<div class="menu-button-container" style={windowWidth < 950 ? 'display: flex' : 'display: none'}>
 	<button id="mobile-menu-button" class="mobile-menu-button" on:click={openMobileMenu}>
-		<img src={angleLeft} alt="Menu" height="25px" width="25px"/>
+		<img src={angleLeft} alt="Menu" height="25px" width="25px" />
 	</button>
 	<div class="theme-butt-mobile">
 		<ThemeButton />
@@ -159,29 +171,31 @@
 
 {#if mobileMenuEnabled}
 	<div class="mobile-menu-container">
-		<div class="mobile-menu"
-			transition:fly={{ x: 200}}
-		>
-			<button class="mobile-home-butt" on:click={() => closeMobileMenu("home")}>Home</button>
-			<button class="mobile-about-butt" on:click={() => closeMobileMenu("about-title")}>About</button>
-			<button class="mobile-things-butt" on:click={() => closeMobileMenu("things-title")}>Things I Use</button>
-			<button class="mobile-projects-butt" on:click={() => closeMobileMenu("projects-title")}>Projects</button>
+		<div class="mobile-menu" transition:fly={{ x: 200 }}>
+			<button class="mobile-home-butt" on:click={() => closeMobileMenu('home')}>Home</button>
+			<button class="mobile-about-butt" on:click={() => closeMobileMenu('about-title')}
+				>About</button
+			>
+			<button class="mobile-things-butt" on:click={() => closeMobileMenu('things-title')}
+				>Things I Use</button
+			>
+			<button class="mobile-projects-butt" on:click={() => closeMobileMenu('projects-title')}
+				>Projects</button
+			>
 		</div>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
-			class="mobile-menu-blur" 
+			class="mobile-menu-blur"
 			on:click={() => closeMobileMenu()}
-			transition:fade={{duration: 200}}
-		>
-		</div>
+			transition:fade={{ duration: 200 }}
+		/>
 	</div>
 {/if}
 
 <style>
 	.theme-butt-mobile {
 		z-index: 50;
-
 	}
 
 	.menu-button-container {
@@ -204,7 +218,7 @@
 		background-color: transparent;
 		cursor: pointer;
 		padding: 0;
-    transition: all 1s;
+		transition: all 1s;
 	}
 
 	:global(body.dark-mode) .mobile-menu-button {
@@ -242,22 +256,22 @@
 	}
 
 	.mobile-menu .mobile-home-butt:hover {
-		color: #B3D9FC;
+		color: #b3d9fc;
 		font-size: 2.5em;
 	}
 
 	.mobile-menu .mobile-about-butt:hover {
-		color: #A5DEA5;
+		color: #a5dea5;
 		font-size: 2.5em;
 	}
 
 	.mobile-menu .mobile-things-butt:hover {
-		color: #D2C9EC;
+		color: #d2c9ec;
 		font-size: 2.5em;
 	}
 
 	.mobile-menu .mobile-projects-butt:hover {
-		color: #FFA468;
+		color: #ffa468;
 		font-size: 2.5em;
 	}
 
@@ -278,7 +292,7 @@
 		height: 100%;
 		backdrop-filter: blur(2px);
 		z-index: 55;
-		background-color: rgba(0,0,0,0.8);
+		background-color: rgba(0, 0, 0, 0.8);
 	}
 
 	header {
@@ -342,5 +356,4 @@
 		color: white;
 		transition: all 1s;
 	}
-
 </style>
