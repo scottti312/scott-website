@@ -162,7 +162,8 @@
 		}
 
 		.things {
-			width: 300px;
+			max-width: 700px;
+			margin: 0 45px 0 45px;
 		}
 	}
 </style>
