@@ -1,8 +1,7 @@
 <script>
-	import Background from "./Background.svelte";
-	import Typewriter from "./Typewriter.svelte";
+	import Background from './Background.svelte';
+	import Typewriter from './Typewriter.svelte';
 </script>
-
 
 <section class="first">
 	<Background />

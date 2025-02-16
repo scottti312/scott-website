@@ -153,7 +153,7 @@
 >
 	<button on:click={() => window.scrollTo(0, 0)}>Home</button>
 	<button on:click={() => scrollTowards('about-title')}>About</button>
-	<button on:click={() => scrollTowards('things-title')}>Things I Use</button>
+	<!-- <button on:click={() => scrollTowards('things-title')}>Things I Use</button> -->
 	<button on:click={() => scrollTowards('projects-title')}>Projects</button>
 	<div class="theme-butt">
 		<ThemeButton />
@@ -176,9 +176,9 @@
 			<button class="mobile-about-butt" on:click={() => closeMobileMenu('about-title')}
 				>About</button
 			>
-			<button class="mobile-things-butt" on:click={() => closeMobileMenu('things-title')}
+			<!-- <button class="mobile-things-butt" on:click={() => closeMobileMenu('things-title')}
 				>Things I Use</button
-			>
+			> -->
 			<button class="mobile-projects-butt" on:click={() => closeMobileMenu('projects-title')}
 				>Projects</button
 			>
