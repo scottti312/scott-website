@@ -32,7 +32,7 @@
 	#gradient-canvas {
     z-index: 0;
     position: absolute;
-		width: 100vw;
+		width: 100%;
 		height: 100vh;
 		--gradient-color-1: #c3e4ff;
 		--gradient-color-2: #6ec3f4;

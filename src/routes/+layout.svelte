@@ -56,7 +56,7 @@
 		flex: 1;
 		flex-direction: column;
 		margin: 0 auto;
-		width: 100vw;
+		width: 100%;
 		box-sizing: border-box;
 	}
 </style>
